@@ -1,0 +1,52 @@
+@import "/src/app/styles/themes/white.scss";
+
+ul {
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    border: 0px solid white;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.places {
+    background-color: $orange-1;
+}
+.places:hover{
+    background-color: $orange-2;
+}
+.places:active{
+    background-color: $orange-3;
+}
+
+.events{
+    background-color: $red-1;
+}
+.events:hover{
+    background-color: $red-2;
+}
+.events:active{
+    background-color: $red-3;
+}
+
+.genres{
+    background-color: $blue-1;
+}
+.genres:hover{
+    background-color: $blue-2;
+}
+.genres:active{
+    background-color: $blue-3;
+}
+
+
+a {
+    text-decoration: none;
+    color: $white;
+    font-weight: bold;
+}

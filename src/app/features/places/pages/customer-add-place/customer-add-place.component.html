@@ -1,0 +1,90 @@
+<section class="add-place">
+    <form [formGroup]="placeForm" (ngSubmit)="sumbit()">
+        <h2 class="text-blue-2">Add Place</h2>
+        <div class="inputs">
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons orange-i" translate="no">title</i>
+                    <input id="name" type="text" formControlName="name" placeholder="Name" class="orange-input">
+                </div>
+                <div *ngIf="name.invalid && (name.touched)">
+                    <p *ngIf="name.errors?.['required']" class="error">Name is required.</p>
+                    <p *ngIf="name.errors?.['minlength']" class="error">Minimum length is 5</p>
+                    <p *ngIf="name.errors?.['maxlength']" class="error">Maximum length is 300</p>
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons orange-i" translate="no">description</i>
+                    <textarea name="text" id="text" cols="30" rows="10" formControlName="text" placeholder="Description" class="orange-textarea"></textarea>
+                </div>
+                <div *ngIf="text.invalid && (text.touched)">
+                    <p *ngIf="text.errors?.['required']" class="error">Description is required.</p>
+                    <p *ngIf="text.errors?.['minlength']" class="error">Minimum length is 10</p>
+                    <p *ngIf="text.errors?.['maxlength']" class="error">Maximum length is 3000</p>
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons orange-i" translate="no">map</i>
+                    <input id="route" type="text" formControlName="route" placeholder="Route" class="orange-input">
+                </div>
+                <div *ngIf="route.invalid && (route.touched)">
+                    <p *ngIf="route.errors?.['required']" class="error">Route is required.</p>
+                    <p *ngIf="route.errors?.['maxlength']" class="error">Maximum length is 300</p>
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons orange-i" translate="no">preview</i>
+                    <input id="site" type="url" formControlName="site" placeholder="Site" class="orange-input">
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+                        <image id="Шар_1" data-name="Шар 1" x="20" y="20" width="160" height="160" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAYAAACLz2ctAAAEpklEQVR4nO3dQY7aQBBGYTPKIqs5QS6cW81JchVHGeSJxxjcbXfXX1X9PinKJorA/agGY+D25/evCUXmysN047Ae++H9BhqqDezI0f83fKDTwAG2jq3VbRguylEC9BBcie3tTB9k5gCjRPfK+j6kjDFbgBmieyZljFkCzBzenuX+hg8xeoCjhbcVPsSIAY4e3Z6w23OkAAmvTKip+ObgNpQgvnohjpn3CUh417ifhl4DJLy23IbocQsmvn7cHVtPE5DwbLiahl4mIPHZc3HMPQRIfDryY6/cggnPB+mWrJqAxOePZE0UARKfX+ZrYx0g8flnukaWARJfHGZrZRUg8cVjsmYWARJfXN3XrneAxBdf1zXsGSDx5dFtLXsFSHz5dFnTHgESX17N17Z1gMSXX9M1bhkg8Y2j2Vq3CpD4xtNkzaN8KAlJtQiQ6Teuy2t/NUDiw6UGrlyQSnzlLC72VK7HfPY+8g2pffDtp4XObsFMv323geM71cSZAInv0cjhrVW3wWmY6wjvgtoAmX7/MfX2VTXCBDyH8BqpCZDpd0d8x4pbKQ2Q+O6Ir1xRM2zB5Yivg5IAmX4467AdJmAZpl8nBHiM+Do6CpDtF1e9bIgJ+BrTr7NXATL90MrTlpiAkHoWINOP7be13aa4INWX4R74BOjDsDvO3hbM9mtnHux4P9xXXoTsy/4hIjcIEFLbAHlU2hj5OH+770xAezzIVwgQUgQIqXWAbA39cYzvvo4DExBSBPiI94ANESCkCBBSS4A8OYa1z+aYgHZ4kO8gQEgRIKQIEFIECCkChBQBQuqN0wMQmpmAkCJASBEgpAgQUgQIqSxfzRHhItLetzHk2QwmIKQIEFIECCkChBQB5hD27dQ3PoYIoRsTEFIECCkChBQBQooA4wt9QTEBQooAIbUEyLlAWPtsjgkIKQKEFAFCigBjC/+Z7nWAvBCBla/WmICQyvKhpJZbUa+dgK9A2cEEhNQ2QJ4HordvjTEBIUWAkNoLkG0YvTy0xQSEFAFC6lmAbMNobbcpJiCkXgXIFEQrT1tiAkLqKECmIK562RATEFIECKmSANmGcdZhO0xASJUGyBREraJmaiYgEaJUcStswZCqDZApiCNVjTABIXUmQKYgnqlu4+wEJEJsnWqCLRhSVwJkCmJxuoWrE5AIcamBFlswEY7r8trzHBBSrQJkCo6nyZq3nIBEOI5ma916CybC/JqucY/ngESYV/O17fUihAjz6bKmPV8FE2Ee3day92kYIoyv6xpanAckwri6r53ViWgijMdkzSzfCSHCOMzWyvqtOCL0z3SNFO8FE6Ff5mujuhiBCP2RrInyl5KWO8wvCGlJh4GHy7GYhjryY+/lekAitOfimHv6sUK2ZBuuHuwer4hmGvbj7th6/blWpmFbbh/U3n8vmBCvcb+bRPlQEttyvRDHLNIvpjMNy4R6sEb8yf71ASbGu7A7RMQA10afiuGfmkQPcDFaiGmeE2cJcJF5e075QixbgGsZYkz/6j9zgGvbhfQa5HCnm0YJcGtvoefN371jGP7cJirM0/Q+f3z8nOd5evnn37+ZpneObYFpmv4CSYqeFUacbs0AAAAASUVORK5CYII="/>
+                      </svg>                                            
+                    <input id="facebook" type="url" formControlName="facebook" placeholder="Facebook" class="orange-input">
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200.016" height="200.016" viewBox="0 0 480 480">
+                        <image id="Шар_1" data-name="Шар 1" x="60" y="60" width="360" height="360" xlink:href="data:img/png;base64,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"/>
+                      </svg>                   
+                    <input id="instagram" type="url" formControlName="instagram" placeholder="Instagram" class="orange-input">
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons orange-i" translate="no">pin_drop</i>
+                    <input id="googleMaps" type="url" formControlName="googleMaps" placeholder="Google maps" class="orange-input">
+                </div>
+                <div *ngIf="googleMaps.invalid && (googleMaps.touched)">
+                    <p *ngIf="googleMaps.errors?.['required']" class="error">Google Maps is required.</p>
+                </div>
+            </div>
+            <div class="w-100">
+                <div class="select-genres">
+                    <app-select-genres (selectedGenreEvent)="addParent($event)" 
+                                       [placeholder]="placeholder" 
+                                       [selectedGenres]="selectedGenres"
+                                       [color]="'orange'"></app-select-genres>
+                </div>
+                
+            </div>
+            <!--<div class="w-100">
+                <app-add-images (addImageEvent)="addImage($event)"></app-add-images>
+            </div>!-->
+        </div>
+        <button type="submit" class="btn-blue">Let's start</button>
+    </form>
+</section>

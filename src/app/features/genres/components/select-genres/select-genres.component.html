@@ -1,0 +1,23 @@
+<div>
+    <div class="w-100">
+        <div class="input-cont">
+            <i [ngClass]="this.color=='red'?'material-icons red-i': this.color=='orange'?'material-icons orange-i':'material-icons blue-i'"
+                translate="no">format_list_bulleted</i>
+            <input type="text" list="codes" (change)="select($event)" placeholder="{{placeholder}}"
+                [ngClass]="this.color=='red'?'red-input': this.color=='orange'?'orange-input':'blue-input'">
+            <datalist id="codes">
+                <option [value]=""></option>
+                <option *ngFor="let g of genres" [value]="g.name">{{g.name}}</option>
+            </datalist>
+        </div>
+    </div>
+
+
+    <div class="selected-genres">
+        <div [ngClass]="this.color=='red'?'genre-cont red-cont': this.color=='orange'?'genre-cont orange-cont':'genre-cont blue-cont'"
+             *ngFor="let genre of selectedGenres">
+            <p>{{genre.name}}</p>
+            <i class="material-icons" translate="no" style="font-size:20px;" (click)="unSelect(genre)">close</i>
+        </div>
+    </div>
+</div>

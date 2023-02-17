@@ -1,0 +1,24 @@
+@import '/src/app/styles/base/inputs.scss',
+        '/src/app/styles/base/buttons.scss',
+        '/src/app/styles/base/base.scss';
+form{
+    width: 100%;
+}
+.comment-cont{
+    display: flex;
+    flex-direction: column;
+    border:1px solid gray;
+    border-radius: 5px;
+}
+.elements-cont{
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+}
+textarea{
+    border: 0;
+    outline: 0;
+}
+.input-cont{
+    border: 0;
+}

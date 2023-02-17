@@ -1,0 +1,53 @@
+<div class="scroll">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>fullRating</th>
+                <th>Place Id</th>
+                <th>Is Online</th>
+                <th>Facebook</th>
+                <th>Instagram</th>
+                <th>Site</th>
+                <th>Event Time</th>
+                <th>Price</th>
+                <th>Owner Id</th>
+                <th>Owner Username</th>
+                <th>Types</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of events">
+                <td>{{event.id}}</td>
+                <td>{{event.title}}</td>
+                <td>{{event.fullRating}}</td>
+                <td>{{event.placeId}}</td>
+                <td>{{event.isOnline}}</td>
+                <td>{{event.facebook}}</td>
+                <td>{{event.instagram}}</td>
+                <td>{{event.site}}</td>
+                <td>{{event.eventTime}}</td>
+                <td>{{event.price}}</td>
+                <td>{{event.ownerId}}</td>
+                <td>{{event.ownerUserName}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let type of event.types">{{type.name}}</li>
+                    </ul>
+                </td>
+                <td>
+                    <div class="buttons">
+                        <button class="edit" (click)="editEvent(event.id)">Edit</button>
+                        <button class="delete" (click)="deleteEvent(event.id)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="center">
+        <button (click)="addEvent()" class="button btn-blue w-30">Add Event</button>
+    </div>
+    
+</div>

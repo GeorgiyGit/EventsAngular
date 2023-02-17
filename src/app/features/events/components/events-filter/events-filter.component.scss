@@ -1,0 +1,21 @@
+@import '/src/app/styles/base/inputs.scss';
+
+
+.filter-cont{
+    display: flex;
+    gap: 15px;
+}
+.input-cont{
+    height: 36px;
+}
+.more-less{
+    font-weight:bolder;
+}
+select{
+    height: 36px;
+    outline: 0;
+    padding: 0 10px;
+}
+.filter-cont>div{
+    flex: 1;
+}

@@ -1,0 +1,105 @@
+<section class="add-place">
+    <form [formGroup]="eventForm" (ngSubmit)="sumbit()">
+        <h2>Add Event</h2>
+        <div class="inputs">
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons red-i" translate="no">title</i>
+                    <input id="title" type="text" formControlName="title" placeholder="Title" class="red-input">
+                </div>
+                <div *ngIf="title.invalid && (title.touched)">
+                    <p *ngIf="title.errors?.['required']" class="error">Title is required.</p>
+                    <p *ngIf="title.errors?.['minlength']" class="error">Minimum length is 5</p>
+                    <p *ngIf="title.errors?.['maxlength']" class="error">Maximum length is 300</p>
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons red-i" translate="no">description</i>
+                    <textarea name="text" id="text" cols="30" rows="10" formControlName="text" placeholder="Description"
+                        class="red-textarea"></textarea>
+                </div>
+                <div *ngIf="text.invalid && (text.touched)">
+                    <p *ngIf="text.errors?.['required']" class="error">Description is required.</p>
+                    <p *ngIf="text.errors?.['minlength']" class="error">Minimum length is 10</p>
+                    <p *ngIf="text.errors?.['maxlength']" class="error">Maximum length is 3000</p>
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <div class="checkbox">
+                        <label for="switch">Online?</label>
+                        <div class="md-switch">
+                            <input type="checkbox" id="switch" class="md-switch-input" (change)="checkChange()"
+                                formControlName="isOnline" />
+                            <label for="switch" class="md-switch-label">
+                                <div class="md-switch-label-rail">
+                                    <div class="md-switch-label-rail-slider"></div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100" *ngIf="!isOnline2">
+                <app-select-place (selectePlaceEvent)="selectPlace($event)"></app-select-place>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons red-i" translate="no">preview</i>
+                    <input id="site" type="url" formControlName="site" placeholder="Site" class="red-input">
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200"
+                        height="200" viewBox="0 0 200 200">
+                        <image id="Шар_1" data-name="Шар 1" x="20" y="20" width="160" height="160"
+                            xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAYAAACLz2ctAAAEpElEQVR4nO3dQW7bMBBGYTnooqtcKJfPNXoaFY3hVJFliRLJ+WeG7wOKborCFp+Htizbtz8fHxOKzCcP043DeuyX9xto6GxgR47+v+EDnQYOsHVsrW7DcFGOEqCH4Eqsb2f6IDMHGCW6Pcv7kDLGbAFmiO6VlDFmCTBzeFse9zd8iNEDHC28tfAhRgxw9Oi2hN2eIwVIeGVCTcU3B7ehBPGdF+KYeZ+AhFfH/TT0GiDhteU2RI9bMPH14+7YepqAhGfD1TT0MgGJz56LY+4hQOLTkR975RZMeD5It2TVBCQ+fyRrogiQ+PwyXxvrAInPP9M1sgyQ+OIwWyurAIkvHpM1swiQ+OLqvna9AyS++LquYc8AiS+PbmvZK0Diy6fLmvYIkPjyar62rQMkvvyarnHLAIlvHM3WulWAxDeeJmse5UNJSKpFgEy/cVWvfW2AxIeqBmouSCW+chYXeyrXY756H/mG1D749tNCV7dgpt+228DxXWriSoDE92zk8JZOt8FpmHqEV+FsgEy//5h62041wgS8hvAaORMg0++O+I4Vt1IaIPHdEV+5ombYgssRXwclATL9cNVhO0zAMky/TgjwGPF1dBQg2y9q7TbEBNzH9OtsL0CmH1p52RITEFKvAmT6sf22ttkUF6T6MtwDnwB9GHbH2dqC2X7tzIMd76f7youQbdk/ROQGAUJqHSCPShsjH+cf950JaI8H+QIBQooAIbUMkK2hP47x3fdxYAJCigCf8R6wIQKEFAFC6hEgT45h7as5JqAdHuQbCBBSBAgpAoQUAUKKACFFgJB64/QAhGYmIKQIEFIECCkChBQBQirLV3NEuIi0920MeTaDCQgpAoQUAUKKACFFgDmEfTv1jY8hQujGBIQUAUKKACFFgJAiwPhCX1BMgJAiQEg9AuRcIKx9NccEhBQBQooAIUWAsYX/TPcyQF6IwMp3a0xASGX5UFLLrajXTsBXoGxgAkJqHSDPA9Hbj8aYgJAiQEhtBcg2jF6e2mICQooAIfUqQLZhtLbZFBMQUnsBMgXRysuWmICQOgqQKYhauw0xASFFgJAqCZBtGFcdtsMEhFRpgExBnFXUzJkJSIQoVdwKWzCkzgbIFMSRU40wASF1JUCmIF453cbVCUiEWLvUBFswpGoCZAri4XILtROQCFHVQIstmAjHVb32PAeEVKsAmYLjabLmLScgEY6j2Vq33oKJML+ma9zjOSAR5tV8bXu9CCHCfLqsac9XwUSYR7e17H0ahgjj67qGFucBiTCu7mtndSKaCOMxWTPLd0KIMA6ztbJ+K44I/TNdI8V7wUTol/naqC5GIEJ/JGui/KWkxx3mF4S0pMPAw+VYTEMd+bH3cj0gEdpzccw9/VghW7INVw92j1dEMw37cXdsvf5cK9OwLbcPau+/F0yIddzvJlE+lMS2fF6IYxbpF9OZhmVCPVgj/mT/8gAT413YHSJigEujT8XwT02iB/gwWohpnhNnCfAh8/ac8oVYtgCXMsSY/tV/5gCX1gvpNcjhTjeNEuDa1kLPq797xzD8uU2cME/T+/z5+Xue52n3z79/M03vHNsC0zT9BeSAneHtQ9exAAAAAElFTkSuQmCC" />
+                    </svg>
+                    <input id="facebook" type="url" formControlName="facebook" placeholder="Facebook" class="red-input">
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200.016"
+                        height="200.016" viewBox="0 0 480 480">
+                        <image id="Шар_1" data-name="Шар 1" x="60" y="60" width="360" height="360"
+                            xlink:href="data:img/png;base64,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" />
+                    </svg>
+                    <input id="instagram" type="url" formControlName="instagram" placeholder="Instagram"
+                        class="red-input">
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons red-i" translate="no">schedule</i>
+                    <input id="instagram" type="date" formControlName="eventTime" placeholder="Event Time"
+                        class="red-input">
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons red-i" translate="no">payments</i>
+                    <input id="price" type="number" formControlName="price" placeholder="Price" min="0" step="10"
+                        class="red-input">
+                </div>
+            </div>
+
+            <div class="w-100">
+                <app-select-genres (selectedGenreEvent)="addGenre($event)" [placeholder]="placeholder"
+                    [selectedGenres]="selectedGenres" [color]="'red'"></app-select-genres>
+            </div>
+        </div>
+        <button type="submit" class="btn-blue">Let's start</button>
+    </form>
+</section>

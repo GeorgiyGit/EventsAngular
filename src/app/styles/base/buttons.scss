@@ -1,0 +1,110 @@
+@import '/src/app/styles/themes/white.scss';
+
+button{
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.delete,
+.edit{
+    padding: 5px 10px;
+    width: auto;
+    color: $white;
+    margin: 0;
+}
+.delete{
+    background-color: $red-2;
+
+}
+.delete:hover{
+    background-color: $red-3;
+}
+.delete:active{
+    background-color: $red-4;
+}
+
+.edit{
+    background-color: $blue-2;
+}
+
+.edit:hover{
+    background-color: $blue-3;
+}
+
+.edit:active{
+    background-color: $blue-4;
+}
+
+.google,
+.facebook,
+.apple,
+.instagram {
+    border-radius: 5px;
+}
+
+.google {
+    background-color: $google;
+}
+
+.google:hover {
+    background-color: $google-hover;
+}
+
+.facebook {
+    background-color: $facebook;
+}
+
+.facebook:hover {
+    background-color: $facebook-hover;
+}
+
+.facebook>div {
+    width: 30px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    height: 100%;
+}
+
+.apple {
+    background-color: $apple;
+}
+
+.apple:hover {
+    background-color: $apple-hover;
+}
+
+.instagram{
+    background-color: $red-2;
+}
+.instagram:hover{
+    background-color: $red-3;
+}
+
+.other-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.other-cont div {
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    box-sizing: border-box;
+}
+
+.other-cont p {
+    text-align: center;
+    width: 100%;
+    font-weight: 550;
+    margin: 0;
+}

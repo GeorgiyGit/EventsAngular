@@ -1,0 +1,90 @@
+@import '/src/app/styles/base/inputs.scss',
+'/src/app/styles/base/base.scss',
+'/src/app/styles/add-entity/base.scss',
+'/src/app/styles/base/colors.scss',
+'/src/app/styles/base/buttons.scss';
+
+svg {
+    width: 24px;
+    height: 24px;
+}
+
+form {
+    box-shadow: 0px 0px 10px 5px $orange-0;
+}
+
+@media screen and (max-width: 400px) {
+    form {
+        box-shadow: none;
+    }
+}
+
+.checkbox {
+    display: flex;
+    color: $red-4;
+    justify-content: center;
+    gap: 10px;
+}
+
+.checkbox input {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+}
+
+
+$trans: all 0.4s cubic-bezier(.55,-0.69,.33,1.38);
+.md-switch {
+    position: relative;
+    top: 3px;
+    &-input {
+        display: none;
+    }
+
+    &-label {
+        position: relative;
+        cursor: pointer;
+        margin: 0;
+
+        &-rail {
+            transition: $trans;
+            position: absolute;
+            width: 2rem;
+            height: 0.75rem;
+            background: $red-4;
+            border-radius: 5rem;
+
+            // overflow: hidden;
+            &-slider {
+                transition: $trans;
+                position: absolute;
+                top: -0.25rem;
+                left: -0.125rem;
+                width: 1.25rem;
+                height: 1.25rem;
+                border-radius: 50%;
+                background: $orange-0;
+                box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.1), 0 3px 5px -4px rgba(0, 0, 0, 0.175);
+            }
+        }
+    }
+
+    #switch:checked+.md-switch-label {
+        .md-switch-label-rail {
+            transition: $trans;
+            background: $blue-4;
+
+            .md-switch-label-rail-slider {
+                transition: $trans;
+                transform: translateX(1rem);
+            }
+        }
+    }
+}
+
+section{
+    background: linear-gradient(180deg,
+    $red-grad-0 0%,
+    $red-grad-1 100%);
+}

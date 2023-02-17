@@ -1,0 +1,122 @@
+@import '/src/app/styles/themes/white.scss';
+
+.input-cont,
+.password-cont {
+    display: flex;
+    padding: 5px;
+    border: 1px solid $gray;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-cont:focus {
+    border: 2px solid $blue-4;
+}
+
+.password-cont {
+    justify-content: space-between;
+}
+
+.password-cont>div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+
+i{
+    user-select: none;
+    color: $blue-4;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    color: $blue-4;
+    width: 100%;
+}
+
+input::placeholder {
+    color: $blue-4;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: $blue-4;
+}
+
+textarea{
+    width: 100%;
+    border: 0;
+    resize: vertical;
+    color: $blue-4;
+}
+textarea:focus{
+    outline: 0;
+}
+textarea::placeholder{
+    color: $blue-4;
+}
+
+.red-input{
+    color: $red-2;
+}
+.red-input::placeholder{
+    color:$red-2;
+}
+.red-i{
+    color: $red-2;
+}
+.red-input:-webkit-autofill,
+.red-input:-webkit-autofill:hover, 
+.red-input:-webkit-autofill:focus, 
+.red-input:-webkit-autofill:active{
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: $red-2;
+}
+.red-textarea{
+    color: $red-2;
+}
+.red-textarea::placeholder{
+    color: $red-2;
+}
+
+
+
+
+.orange-input{
+    color: $orange-4;
+}
+.orange-input::placeholder{
+    color:$orange-4;
+}
+.orange-i{
+    color: $orange-4;
+}
+.red-i{
+    color: $red-4;
+}
+.blue-i{
+    color: $blue-4;
+}
+
+
+.orange-input:-webkit-autofill,
+.orange-input:-webkit-autofill:hover, 
+.orange-input:-webkit-autofill:focus, 
+.orange-input:-webkit-autofill:active{
+    box-shadow: 0 0 0 30px $white inset !important;
+    -webkit-text-fill-color: $orange-4;
+}
+.orange-textarea{
+    color: $orange-4;
+}
+.orange-textarea::placeholder{
+    color: $orange-4;
+}

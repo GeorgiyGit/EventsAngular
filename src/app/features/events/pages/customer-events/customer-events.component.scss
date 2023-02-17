@@ -1,0 +1,28 @@
+@import '/src/app/styles/cards/cards-cont.scss',
+'/src/app/styles/base/base.scss',
+'/src/app/styles/themes/white.scss';
+
+
+section {
+    padding: 50px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            $red-grad-0 0%,
+            $red-grad-1 100%);
+}
+
+.white-cont {
+    box-shadow: 0px 0px 10px 5px $red-4;
+    background-color: $white;
+}
+
+@media screen and (max-width:500px) {
+    section {
+        padding: 0;
+    }
+
+    .white-cont {
+        box-shadow: 0 0 0 0 white;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,80 @@
+<section>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <h2 class="text-orange">Sign Up</h2>
+        <div class="inputs w-100">
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons" translate="no">account_circle</i>
+                    <input id="userName" type="text" formControlName="userName" placeholder="Name">
+                </div>
+                <div *ngIf="userName.invalid && (userName.touched)">
+                    <p *ngIf="userName.errors?.['required']" class="error">Name is required.</p>
+                    <p *ngIf="userName.errors?.['minlength']" class="error">Minimum length is 5</p>
+                    <p *ngIf="userName.errors?.['maxlength']" class="error">Maximum length is 100</p>
+                </div>
+            </div>
+
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons" translate="no">mail</i>
+                    <input id="email" type="email" formControlName="email" placeholder="Email">
+                </div>
+                <div *ngIf="email.invalid && (email.touched)">
+                    <p *ngIf="email.errors?.['required']" class="error">Email is required.</p>
+                    <p *ngIf="email.errors?.['minlength']" class="error">Minimum length is 5</p>
+                    <p *ngIf="email.errors?.['maxlength']" class="error">Maximum length is 200</p>
+                </div>
+            </div>
+            <div class="w-100">
+                <div class="password-cont">
+                    <div>
+                        <i class="material-icons" translate="no">lock</i>
+                        <input *ngIf="!isPassVisible" id="password" type="password" userCapture formControlName="password" placeholder="Password">
+                        <input *ngIf="isPassVisible" id="password" type="text" userCapture formControlName="password" placeholder="Password">
+                    </div>
+                    <i *ngIf="isPassVisible" class="material-icons eye-icon" translate="no" (click)="eyeClick()">visibility_off</i>
+                    <i *ngIf="!isPassVisible" class="material-icons eye-icon" translate="no" (click)="eyeClick()">visibility</i>
+                </div>
+                <div *ngIf="password.invalid && (password.touched)">
+                    <p *ngIf="password.errors?.['required']" class="error">Password is required.</p>
+                    <p *ngIf="password.errors?.['pattern']" class="error">Password must have 8 symbols, letter and one extra symbol </p>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn-orange">Let's start</button>
+        <div class="hrs">
+            <div class="back-blue-3"></div>
+                <p class="position-top-1">or</p>
+            <div class="back-blue-3"></div>
+        </div>
+        <div class="other-cont w-100">
+
+            <a href="">
+                <div class="google text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
+                    <p>Sign up with Google</p>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="apple text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="90px" height="90px" fill-rule="nonzero"><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M25.565,9.785c-0.123,0.077 -3.051,1.702 -3.051,5.305c0.138,4.109 3.695,5.55 3.756,5.55c-0.061,0.077 -0.537,1.963 -1.947,3.94c-1.119,1.703 -2.361,3.42 -4.247,3.42c-1.794,0 -2.438,-1.135 -4.508,-1.135c-2.223,0 -2.852,1.135 -4.554,1.135c-1.886,0 -3.22,-1.809 -4.4,-3.496c-1.533,-2.208 -2.836,-5.673 -2.882,-9c-0.031,-1.763 0.307,-3.496 1.165,-4.968c1.211,-2.055 3.373,-3.45 5.734,-3.496c1.809,-0.061 3.419,1.242 4.523,1.242c1.058,0 3.036,-1.242 5.274,-1.242c0.966,0.001 3.542,0.292 5.137,2.745zM15.001,6.688c-0.322,-1.61 0.567,-3.22 1.395,-4.247c1.058,-1.242 2.729,-2.085 4.17,-2.085c0.092,1.61 -0.491,3.189 -1.533,4.339c-0.935,1.242 -2.545,2.177 -4.032,1.993z"></path></g></g></svg>
+                    <p>Sign up with Apple</p>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="facebook text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+                        <image id="Шар_1" data-name="Шар 1" x="20" y="20" width="160" height="160" xlink:href="data:img/png;base64,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"/>
+                    </svg>                      
+                    <p>Sign up with Facebook</p>
+                </div>
+            </a>
+        </div>
+        <p class="mb-0">Already have an account? <a class="link text-red-4" routerLink="/log-in">Log In</a></p>
+        <p class="acceptance">I accept the site <a class="link text-red-4">Terms of Service</a> and agree to the <a
+                class="link text-red-4">Privacy Policy</a>.</p>
+    </form>
+</section>

@@ -1,0 +1,40 @@
+@import '/src/app/styles/themes/white.scss';
+div{
+    background-color: $light-gray;
+    border: 0px solid white;
+    border-radius: 50px;
+    box-shadow: 0 0 10px 1px $orange-3;
+    display: inline-block;
+    padding: 0;
+    height: 48px;
+    margin: 0;
+}
+div:hover{
+    background-color: $red-3;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0;
+    height: 48px;
+    position: fixed;
+    bottom: 40px;
+    right: 80px
+}
+i{
+    color: $red-3;
+    font-size: 48px;
+    user-select: none;
+    margin: 0;
+}
+i:hover{
+    color: $white;
+}
+
+@media screen and (max-width:500px) {
+    a{
+        bottom: 40px;
+        right: 40px;
+    }
+}

@@ -1,0 +1,72 @@
+@import "/src/app/styles/base/inputs.scss", "/src/app/styles/base/colors.scss";
+
+.selected-genres {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.genre-cont {
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    
+    border-radius: 15px;
+    padding: 0 10px;
+    top: -2px;
+}
+.blue-cont{
+    border: 2px solid $blue-4;
+}
+.orange-cont{
+    border: 2px solid $orange-4;
+}
+.red-cont{
+    border: 2px solid $red-4;
+}
+
+.blue-cont:hover {
+    background-color: $blue-4;
+}
+.orange-cont:hover {
+    background-color: $orange-4;
+}
+
+.red-cont:hover {
+    background-color: $red-4;
+}
+
+
+.genre-cont i,
+.genre-cont p{
+    user-select: none;
+    margin: 0;
+}
+
+.blue-cont i,
+.blue-cont p{
+    color: $blue-3;
+}
+
+.orange-cont i,
+.orange-cont p{
+    color: $orange-3;
+}
+
+.red-cont i,
+.red-cont p{
+    color: $red-3;
+}
+
+
+
+.genre-cont p{
+    position: relative;
+    top: -1px;
+}
+.genre-cont:hover i,
+.genre-cont:hover p{
+    color: $white;
+}

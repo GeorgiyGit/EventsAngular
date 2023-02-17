@@ -1,0 +1,31 @@
+.card-cont {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    gap: 10px;
+}
+
+@media screen and (max-width:900px) {
+    .card-cont {
+        grid-template-columns: 24% 24% 24% 24%;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .card-cont {
+        grid-template-columns: 49% 49%;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .card-cont {
+        grid-template-columns: 100%;
+    }
+}
+
+.white-cont {
+    padding: 20px;
+    border: 0 solid white;
+    border-radius: 10px;
+    height: 100%;
+}

@@ -1,0 +1,36 @@
+@import "/src/app/styles/themes/white.scss";
+
+.w-100 {
+    width: 100%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.error {
+    color: $red-4;
+    margin: 0;
+}
+
+.right {
+    display: flex;
+    justify-content: right;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+

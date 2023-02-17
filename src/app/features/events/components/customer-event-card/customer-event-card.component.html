@@ -1,0 +1,12 @@
+<div class="card red-back-2">
+    <a (click)="click(event.id)">
+        <div class="img-cont">
+            <p *ngFor="let type of event.types | slice:0:3" class="type">{{type.name}}</p>
+        </div>
+        <div class="main-card-cont red-back-2">
+            <p><strong>{{event.title}}</strong></p>
+            <p>{{event.route}}</p>
+            <p>{{event.eventTime}}</p>
+        </div>
+    </a>
+</div>

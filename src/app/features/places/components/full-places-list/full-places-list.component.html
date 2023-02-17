@@ -1,0 +1,55 @@
+<div class="scroll">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Route</th>
+                <th>Full Rating</th>
+                <th>Facebook</th>
+                <th>Instagram</th>
+                <th>Site</th>
+                <th>Google Maps</th>
+                <th>Owner Id</th>
+                <th>Owner Username</th>
+                <th>Types</th>
+                <th>Events</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let place of places">
+                <td>{{place.id}}</td>
+                <td>{{place.name}}</td>
+                <td>{{place.route}}</td>
+                <td>{{place.fullRating}}</td>
+                <td>{{place.facebook}}</td>
+                <td>{{place.instagram}}</td>
+                <td>{{place.site}}</td>
+                <td>{{place.googleMaps}}</td>
+                <td>{{place.ownerId}}</td>
+                <td>{{place.ownerUserName}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let type of place.types">{{type.name}}</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let event of place.events">{{event}}</li>
+                    </ul>
+                </td>
+                <td>
+                    <div class="buttons">
+                        <button class="edit" (click)="editPlace(place.id)">Edit</button>
+                        <button class="delete" (click)="deletePlace(place.id)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="center">
+        <button (click)="addPlace()" class="button btn-blue w-30">Add Place</button>
+    </div>
+    
+</div>

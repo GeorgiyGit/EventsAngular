@@ -1,0 +1,11 @@
+<div class="card orange-back-2">
+    <a (click)="click(place.id)">
+        <div class="img-cont">
+            <p *ngFor="let type of place.types | slice:0:3" class="type">{{type.name}}</p>
+        </div>
+        <div class="main-card-cont orange-back-2">
+            <p><strong>{{place.name}}</strong></p>
+            <p>{{place.route}}</p>
+        </div>
+    </a>
+</div>

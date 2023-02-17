@@ -1,0 +1,15 @@
+<section class="place-list">
+    <app-customer-add-place-button></app-customer-add-place-button>
+    <div class="white-cont">
+        
+        <h1>Place List</h1>
+        <div class="mb-20">
+            <app-places-filter [places]="places" (filteredPlacesEvent)="filtered($event)"></app-places-filter>
+        </div>
+        <div class="card-cont">
+            <div *ngFor="let place of filteredPlaces">
+                <app-customer-place-card [place]="place"></app-customer-place-card>
+            </div>
+        </div>
+    </div>
+</section>

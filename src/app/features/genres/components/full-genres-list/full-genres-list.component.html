@@ -1,0 +1,33 @@
+<div class="scroll">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Parents</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let genre of genres">
+                <td>{{genre.id}}</td>
+                <td>{{genre.name}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let parent of genre.parents">{{parent}}</li>
+                    </ul>
+                </td>
+                <td>
+                    <div class="buttons">
+                        <button class="edit" (click)="editGenre(genre.id)">Edit</button>
+                        <button class="delete" (click)="deleteGenre(genre.id)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="center">
+        <button (click)="addGenre()" class="button btn-blue w-30">Add Genre</button>
+    </div>
+    
+</div>
