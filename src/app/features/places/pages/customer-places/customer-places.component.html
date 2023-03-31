@@ -1,10 +1,15 @@
-<section class="place-list">
-    <app-customer-add-place-button></app-customer-add-place-button>
+<section class="place-list" *ngIf="!isFilter">
+    <app-customer-add-place-button *ngIf="!isPhone"></app-customer-add-place-button>
     <div class="white-cont">
         
         <h1>Place List</h1>
-        <div class="mb-20">
-            <app-places-filter [places]="places" (filteredPlacesEvent)="filtered($event)"></app-places-filter>
+        <div class="mb-20 filter-cont">
+            <app-places-filter *ngIf="!isPhone" [places]="places" (filterEvent)="filterChanged($event)"></app-places-filter>
+            <button *ngIf="isPhone" (click)="showFilter()" class="btn-orange">Filter</button>
+            <div class="input-cont" *ngIf="isPhone">
+                <i class="material-icons orange-i" translate="no">search</i>
+                <input type="text" (keyup)="filterStrChanged($event)" class="orange-input">
+            </div>
         </div>
         <div class="card-cont">
             <div *ngFor="let place of filteredPlaces">
@@ -12,4 +17,6 @@
             </div>
         </div>
     </div>
+    
 </section>
+<app-places-phone-filter *ngIf="isFilter" (filterEvent)="filterChanged($event)"></app-places-phone-filter>

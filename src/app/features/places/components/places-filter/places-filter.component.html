@@ -3,17 +3,16 @@
         <app-select-genres (selectedGenreEvent)="addGenre($event)" [placeholder]="placeholder"
         [selectedGenres]="selectedGenres" [color]="'orange'"></app-select-genres>
     </div>
-    
-    <div class="input-cont">
-        <i class="material-icons orange-i" translate="no">search</i>
-        <input type="text" (keyup)="filterChange($event)" class="orange-input">
-    </div>
+
     <div>
         <select class="orange-input" (change)="select($event)">
             <option [value]="0">More popular</option>
-            <option [value]="1">Less popular</option>
-            <option [value]="2">A-z</option>
-            <option [value]="3">z-A</option>
+            <option [value]="1">A-z</option>
+            <option [value]="2">z-A</option>
         </select>
+    </div>
+    <div class="input-cont">
+        <i class="material-icons orange-i" translate="no">search</i>
+        <input type="text" (keyup)="filterStrChanged($event)" class="orange-input">
     </div>
 </div>

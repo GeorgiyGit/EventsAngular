@@ -1,0 +1,23 @@
+<form [formGroup]="filterForm" (ngSubmit)="sumbit()">
+    <div>
+        <p>Types</p>
+        <app-select-genres (selectedGenreEvent)="addGenre($event)" [placeholder]="placeholder"
+        [selectedGenres]="selectedGenres" [color]="'orange'"></app-select-genres>
+    </div>
+    <div class="order-box">
+        <p>Order by</p>
+        <div>
+            <input id="morePopular" name="order" type="radio" [value]="0">
+            <label for="morePopular">More popular</label>
+        </div>
+        <div>
+            <input id="az" name="order" type="radio" [value]="1">
+            <label for="az">A-z</label>
+        </div>
+        <div>
+            <input id="za" name="order" type="radio" [value]="2">
+            <label for="za">Z-a</label>
+        </div>
+    </div>
+    <button type="submit" class="btn-orange">Add filter</button>
+</form>

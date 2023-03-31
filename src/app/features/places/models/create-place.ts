@@ -13,5 +13,5 @@ export interface ICreatePlace {
     googleMaps:string,
 
     types:number[],
-    image:string
+    images:File[]
 }

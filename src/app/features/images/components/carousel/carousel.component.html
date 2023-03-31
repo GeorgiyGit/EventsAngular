@@ -1,0 +1,12 @@
+<div class="carousel">
+    <div class="title">
+        <h1>{{title}}</h1>
+      </div>
+    <div class="slides" [style.transform]="'translateX(' + (-index * 100) + '%)'">
+      <div class="slide" *ngFor="let image of images; let i = index">
+        <img [src]="imagesUrl+image.path" alt="Image {{i + 1}}">
+      </div>
+    </div>
+    <i class="material-icons orange-i prev" translate="no" (click)="prevSlide()">arrow_back_ios</i>
+    <i class="material-icons orange-i next" translate="no" (click)="nextSlide()">arrow_forward_ios</i>
+  </div>

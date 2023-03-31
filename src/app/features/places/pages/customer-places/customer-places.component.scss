@@ -1,11 +1,15 @@
 @import '/src/app/styles/cards/cards-cont.scss',
 '/src/app/styles/base/base.scss',
-'/src/app/styles/themes/white.scss';
+'/src/app/styles/themes/white.scss',
+'/src/app/styles/base/buttons.scss',
+'/src/app/styles/base/colors.scss',
+'/src/app/styles/base/inputs.scss';
 
 
 section {
     padding: 50px;
     height: 100%;
+    min-height: 100vh;
     background: linear-gradient(180deg,
             $orange-0 0%,
             $orange-2 100%);
@@ -23,4 +27,10 @@ section {
         box-shadow: 0 0 0 0 white;
         border-radius: 0;
     }
+}
+
+
+
+.filter-cont button{
+    margin-top: 0;
 }

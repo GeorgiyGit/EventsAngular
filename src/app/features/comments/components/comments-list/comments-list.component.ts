@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 import { IComment } from '../../models/comment';
 import { CommentsService } from '../../services/comments.service';
 
@@ -9,48 +10,33 @@ import { CommentsService } from '../../services/comments.service';
 })
 export class CommentsListComponent implements OnInit {
 
-  @Input() placeId?:number;
-  @Input() eventId?:number;
+  @Input() placeId?: number;
+  @Input() eventId?: number;
 
-  comments:IComment[];
-  constructor(private commentsService:CommentsService) { }
+  @Input() parentId:number;
+  comments: IComment[];
+
+  @Output() myEvent: EventEmitter<any> = new EventEmitter();
+
+  constructor(private commentsService: CommentsService) { }
 
   ngOnInit(): void {
-    if(this.placeId!=null){
-      this.commentsService.getPlaceComments(this.placeId).subscribe(res=>{
-        this.comments=res;
+    if (this.placeId != null) {
+      this.commentsService.getPlaceComments(this.placeId).subscribe(res => {
+        this.comments = res;
       })
     }
-    else if(this.eventId!=null){
-      this.commentsService.getEventComments(this.eventId).subscribe(res=>{
-        this.comments=res;
+    else if (this.eventId != null) {
+      this.commentsService.getEventComments(this.eventId).subscribe(res => {
+        this.comments = res;
       })
     }
-  }
-
-
-  addLike(id:number):void{
-    this.commentsService.addLike(id).subscribe(res=>{
-      this.comments[id].isLiked=true;
-    });
-  }
-  
-  addDisLike(id:number):void{
-    this.commentsService.addDisLike(id).subscribe(res=>{
-      this.comments[id].isDisLiked=true;
-    });
-  }
-  
-  removeLike(id:number):void{
-    this.commentsService.removeLike(id).subscribe(res=>{
-      this.comments[id].isLiked=false;
-    });
-  }
-
-  removeDisLike(id:number):void{
-    this.commentsService.removeDisLike(id).subscribe(res=>{
-      this.comments[id].isDisLiked=false;
-    });
+    else if(this.parentId!=null){
+      this.commentsService.getChildComments(this.parentId).subscribe(res=>{
+        this.comments=res;
+        this.myEvent.emit(this.comments);
+      })
+    }
   }
 }
 

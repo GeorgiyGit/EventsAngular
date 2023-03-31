@@ -1,0 +1,24 @@
+@import '/src/app/styles/base/buttons.scss',
+        '/src/app/styles/base/colors.scss';
+.order-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.order-box>div{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.order-box>p{
+    margin-bottom: 5px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}

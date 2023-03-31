@@ -7,6 +7,6 @@ export interface ISimplePlace {
     name:string,
     route:string,
     fullRating:number,
-    image:IImage,
+    images:IImage[],
     types:IGenre[]
 }

@@ -8,7 +8,7 @@ export interface IComment {
     ownerId:string,
     ownerUserName:string,
     likes:number,
-    disLikes:number,
+    dislikes:number,
     isLiked:boolean,
-    isDisLiked:boolean
+    isDisliked:boolean
 }

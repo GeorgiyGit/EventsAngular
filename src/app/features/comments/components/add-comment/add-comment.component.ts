@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICreateComment } from '../../models/create-comment';
@@ -18,6 +18,11 @@ export class AddCommentComponent implements OnInit{
   @Input() eventId?: number;
   @Input() placeId?: number;
 
+
+
+
+  @Output() addCommentEmitter = new EventEmitter<boolean>();
+  
   get formValue() {
     return this.commentForm.value as ICreateComment;
   }
@@ -65,18 +70,12 @@ export class AddCommentComponent implements OnInit{
     comment.eventId = this.eventId;
     comment.placeId = this.placeId;
 
-    console.log(this.parentId);
-    console.log(this.eventId);
-    console.log(this.placeId);
-    console.log(comment);
-    console.log(this.isAddMode);
-    console.log(this.id);
-
     if (!this.isAddMode) {
       this.commentService.addComment(comment).subscribe(result => {
         this.commentForm = this.fb.group({
           text: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(3000)]]
         });
+        this.addCommentEmitter.emit(true);
         
       }, error => {
         console.error(error);
@@ -93,6 +92,7 @@ export class AddCommentComponent implements OnInit{
         this.commentForm = this.fb.group({
           text: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(3000)]]
         });
+        this.addCommentEmitter.emit(true);
       }, error => {
         console.error(error);
         if (error?.error?.ErrorMessage)

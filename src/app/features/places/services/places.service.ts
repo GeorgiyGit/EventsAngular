@@ -29,20 +29,36 @@ export class PlacesService {
         };
         return this.http.get<IPlace[]>(this.controllerUrl + "full", httpOptions);
     }
+    
     addPlace(model: ICreatePlace): Observable<any> {
-        //let formData = new FormData();
-        //formData.append("name",model.name);
-        //formData.append("text",model.text);
-        //formData.append("route",model.route);
+        let formData = new FormData();
 
-        //formData.append("site",model.site??"");
-        //formData.append("facebook",model.facebook??"");
-        //formData.append("instagram",model.instagram??"");
-        //formData.append("googleMaps",model.googleMaps);
+        formData.append("name", model.name);
+        formData.append("text", model.text);
+        formData.append("route", model.route);
 
-        //formData.append("types",JSON.stringify(body['user']));
-        //formData.append("text",model.text);
-        return this.http.post(this.controllerUrl, model, this.accountService.getHttpOptions());
+
+        if (model.site != null) formData.append("site", model.site);
+        if (model.facebook != null) formData.append("facebook", model.facebook);
+        if (model.instagram != null) formData.append("instagram", model.instagram);
+
+        formData.append("googleMaps", model.googleMaps);
+
+
+        for (var i = 0; i < model.types.length; i++) {
+            if (model.types[i] != null) {
+                formData.append('types[]', model.types[i] + "");
+            }
+        }
+  
+        for (var i = 0; i < model.images.length; i++) {
+            if (model.images[i] != null) {
+                formData.append('images', model.images[i]);
+            }
+        }
+    
+
+        return this.http.post(this.controllerUrl, formData, this.accountService.getHttpOptions());
     }
     updatePlace(model: ICreatePlace): Observable<any> {
         return this.http.put(this.controllerUrl, model, this.accountService.getHttpOptions());

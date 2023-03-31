@@ -1,14 +1,18 @@
 <section>
   <div class="main-cont white-cont">
     <div class="information">
-      <h1>{{place.name}}</h1>
+      <app-carousel [images]="place.images"
+                    [title]="place.name"></app-carousel>
       <div class="types-and-favorite">
         <div class="types">
           <div *ngFor="let type of place.types">
             {{type.name}}
           </div>
         </div>
-        <app-place-favorite-button [placeId]="place.id"></app-place-favorite-button>
+        <div class="favorite-cont">
+          <app-place-like-button [id]="place.id"></app-place-like-button>
+          <app-place-favorite-button [placeId]="place.id"></app-place-favorite-button>
+        </div>
       </div>
       <hr>
       <div>

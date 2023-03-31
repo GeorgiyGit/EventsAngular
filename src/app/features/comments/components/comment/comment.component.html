@@ -1,0 +1,32 @@
+<div class="comment">
+    <div class="head">
+        <div>
+            <img src="resources/img1.png" alt="Avatar">
+            <p>{{comment.ownerUserName}}</p>
+            <p>{{comment.creationTime}}</p>
+            <p>{{comment.isChanged?"changed":""}}</p>
+        </div>
+        <i class="material-icons" translate="no">more_vert</i>
+    </div>
+    <p>{{comment.text}}</p>
+    <div class="footer">
+        <i *ngIf="comment.isLiked==true" class="material-icons text-orange size-24px" translate="no" (click)="removeLike()">thumb_up</i>
+        <i *ngIf="comment.isLiked==false" class="material-icons text-blue-4 size-24px" translate="no" (click)="addLike()">thumb_up</i>
+        
+        <p [ngClass]="(comment.likes>=comment.dislikes)? 'text-blue-2 p-minus':'text-red-4 p-minus'">{{comment.likes-comment.dislikes}}</p>
+
+        <i *ngIf="comment.isDisliked==true" class="material-icons text-orange size-24px" translate="no" (click)="removeDisLike()">thumb_down</i>
+        <i *ngIf="comment.isDisliked==false" class="material-icons text-blue-4 size-24px" translate="no" (click)="addDisLike()">thumb_down</i>
+        <p class="p-minus"><a (click)="respond()">respond</a></p>
+    </div>
+</div>
+<p class="mt-5 mb-0" *ngIf="subCount!=0"><a (click)="subComments()">View {{subCount}} comments</a></p>
+<div class="w-90 child-cont">
+    <app-add-comment *ngIf="isRespond"
+                     [parentId]="comment.id"
+                     (addCommentEmitter)="closeRespond($event)"></app-add-comment>
+    <app-comments-list [parentId]="comment.id"
+                       *ngIf="isSubCommentsOpen">
+
+    </app-comments-list>
+</div>

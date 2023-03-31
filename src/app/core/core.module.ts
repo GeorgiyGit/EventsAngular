@@ -1,3 +1,6 @@
+import { GoogleRegisterBtnComponent } from './../features/account/components/google-register-btn/google-register-btn.component';
+import { PlaceLikeButtonComponent } from './../features/likes/components/place-like-button/place-like-button.component';
+import { PlacesPhoneFilterComponent } from './../features/places/components/places-phone-filter/places-phone-filter.component';
 import { CommentsListComponent } from './../features/comments/components/comments-list/comments-list.component';
 import { AddCommentComponent } from './../features/comments/components/add-comment/add-comment.component';
 import { PlaceFavoriteButtonComponent } from './../features/favorite/components/place-favorite-button/place-favorite-button.component';
@@ -35,6 +38,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ManagerModule } from '../features/manager/manager.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { CustomerEventsComponent } from '../features/events/pages/customer-events/customer-events.component';
+import { CommentComponent } from '../features/comments/components/comment/comment.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig } from 'angularx-social-login';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorHandlerService } from './services/error-handler.service';
+import { CustomerAddImagesComponent } from '../features/images/components/customer-add-images/customer-add-images.component';
+import { DndDirective } from '../dnd.directive';
+import { CarouselComponent } from '../features/images/components/carousel/carousel.component';
 
 
 export function tokenGetter() {
@@ -52,7 +62,8 @@ export function tokenGetter() {
 
     AddCommentComponent,
     CommentsListComponent,
-    
+    CommentComponent,
+
     CustomerPlacesComponent,
     PlacesFilterComponent,
     CustomerAddPlaceButtonComponent,
@@ -60,6 +71,7 @@ export function tokenGetter() {
     CustomerPlaceCardComponent,
     SelectPlaceComponent,
     CustomerPlaceDetailsComponent,
+    PlacesPhoneFilterComponent,
 
     CustomerEventsComponent,
     CustomerAddEventButtonComponent,
@@ -73,6 +85,14 @@ export function tokenGetter() {
     FooterComponent,
 
     PlaceFavoriteButtonComponent,
+    PlaceLikeButtonComponent,
+
+    GoogleRegisterBtnComponent,
+        
+    CustomerAddImagesComponent,
+    CarouselComponent,
+
+    DndDirective
   ],
   imports: [
     CommonModule,
@@ -92,8 +112,7 @@ export function tokenGetter() {
     AdminGuard,
     ModeratorGuard,
     UserGuard,
-    JwtHelperService,
-    
+    JwtHelperService
   ],
   exports: [CoreComponent]
 })

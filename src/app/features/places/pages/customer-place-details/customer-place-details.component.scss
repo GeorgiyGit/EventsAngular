@@ -63,3 +63,20 @@ section {
 .references{
   margin:50px 0;
 }
+@media screen and (max-width:500px) {
+  section{
+      padding: 0;
+  }
+  .white-cont{
+      box-shadow: 0 0 0 0 white;
+      border-radius: 0;
+  }
+}
+
+.favorite-cont{
+  display: flex;
+  gap: 10px;
+}
+img{
+  width:100%;
+}

@@ -1,12 +1,13 @@
-<header>
-    <nav>
+<header *ngIf="!isPhoneMenuOpen">
+    <nav class="nav-pc">
         <div class="v-center">
             <h1>Logo</h1>
             <ul>
                 <li><a routerLink="/home">Home</a></li>
                 <li><a routerLink="/events" class="events">Events</a></li>
                 <li><a routerLink="/places" class="places">Places</a></li>
-                <li *ngIf="accountService.isAuthenticated() && (accountService.isUserAdmin()||accountService.isUserModerator())" class="dropdown">
+                <li *ngIf="accountService.isAuthenticated() && (accountService.isUserAdmin()||accountService.isUserModerator())"
+                    class="dropdown">
                     <a routerLink="/manager">Manager</a>
                 </li>
             </ul>
@@ -19,4 +20,51 @@
             </li>
         </ul>
     </nav>
+</header>
+<header *ngIf="isPhoneMenuOpen">
+    <nav class="nav-top">
+        <h1>Logo</h1>
+        <div>
+            <i class="material-icons orange-i" translate="no">search</i>
+            <i class="material-icons orange-i" translate="no">settings</i>
+        </div>
+    </nav>
+
+    <nav class="nav-phone">
+        <ul>
+            <li>
+                <a routerLink="/events" class="events">
+                    <i class="material-icons orange-i" translate="no">celebration</i>
+                    <p>Events</p>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/places" class="places">
+                    <i class="material-icons orange-i" translate="no">location_on</i>
+                    <p>Places</p>
+                </a>
+            </li>
+            <li class="add">
+                <a routerLink="/events" class="events">
+                    <i class="material-icons orange-i" translate="no" style="font-size: 48px;">add_circle</i>
+                </a>
+            </li>
+    
+            <li>
+                <a routerLink="/places" class="places">
+                    <i class="material-icons orange-i" translate="no">hotel_class</i>
+                    <p>Favorite</p>
+                </a>
+            </li>
+    
+            <li>
+                <a routerLink="/auth" class="auth">
+                    <i class="material-icons orange-i" translate="no">account_circle</i>
+                    <p>Account</p>
+                </a>
+            </li>
+    
+        </ul>
+    </nav>
+    
 </header>

@@ -1,0 +1,125 @@
+@import '/src/app/styles/themes/white.scss';
+
+.images-cont {
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    min-height: 200px;
+}
+
+.images-cont>div {
+    max-width: 100px;
+    max-height: 100px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: all 0.25s;
+}
+
+.images-cont>div:hover>img {
+    filter: opacity(50%);
+}
+
+.images-cont>div:hover>.centered {
+    display: block;
+    filter: grayscale(0);
+    color: $red-3;
+}
+
+.images-cont>div:hover i {
+    display: block;
+    filter: grayscale(0);
+
+    animation: spin 0.5s ease;
+    animation-fill-mode: forwards;
+}
+
+.centered {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+i {
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    font-size: 48px;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(135deg);
+    }
+}
+
+
+.inside-image {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+    border: 3px solid $orange-4;
+    border-radius: 10px;
+}
+
+.inside-image>i {
+    width: auto;
+    height: auto;
+}
+
+.inside-image>p {
+    text-align: center;
+    width: auto;
+}
+
+.element {
+    position: relative;
+}
+
+input {
+    display: none;
+}
+
+p {
+    cursor: pointer;
+}
+
+.fileover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% {
+        box-shadow: 0 0 0px 0px $orange-4;
+    }
+
+    50%{
+        box-shadow: 0 0 10px 5px $orange-4;
+    }
+    100%{
+        box-shadow: 0 0 0 0 $orange-4;
+    }
+}

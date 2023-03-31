@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: "https://localhost:7144/api/",
-  userToken:"user-token"
+  userToken:"user-token",
+  filesUrl:"https://localhost:7144/Uploads/",
   //passwordSort:"^(?=.*\d)(?!.*\s)(?=.*[a-zA-Z]).{8,20}$",
 };
 

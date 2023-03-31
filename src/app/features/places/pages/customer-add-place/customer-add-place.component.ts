@@ -1,3 +1,4 @@
+import { IImagePreview } from './../../../images/models/imagePreview';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -5,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IGenre } from 'src/app/features/genres/models/genre';
 import { ICreatePlace } from '../../models/create-place';
 import { PlacesService } from '../../services/places.service';
+import { IImage } from 'src/app/features/images/models/image';
 
 @Component({
   templateUrl: './customer-add-place.component.html',
@@ -14,6 +16,9 @@ export class CustomerAddPlaceComponent {
   id: string;
   isAddMode: boolean;
   placeForm: FormGroup;
+
+
+  imageFiles: IImagePreview[] = [];
 
   get formValue() {
     return this.placeForm.value as ICreatePlace;
@@ -65,12 +70,6 @@ export class CustomerAddPlaceComponent {
   public placeholder = "Types";
   public types: IGenre[];
   public image: File;
-  isPassVisible = false;
-
-  eyeClick() {
-    this.isPassVisible = !this.isPassVisible;
-    console.log(this.isPassVisible);
-  }
 
   sumbit(): void {
 
@@ -91,19 +90,15 @@ export class CustomerAddPlaceComponent {
     if (place.instagram == '') place.instagram = undefined;
 
     if (this.isAddMode) {
-      this.placesService.addPlace(place).subscribe(result => {
-        //this.imagesService.CreateImage({
-          //file:this.image,
-          //placeId:result
-       //}).subscribe(res=>{}, error => {
-          //console.error(error);
-          //if (error?.error?.ErrorMessage)
-            //alert(error.error.ErrorMessage);
-          //else
-            //alert(error.message);
-        //});
-        //console.log(result);
+      let files: File[] = [];
 
+      for (let image of this.imageFiles) {
+        files.push(image.imageFile);
+      }
+
+      place.images = files;
+
+      this.placesService.addPlace(place).subscribe(result => {
         this.router.navigateByUrl('/');
       }, error => {
         console.error(error);
@@ -133,5 +128,13 @@ export class CustomerAddPlaceComponent {
 
   addParent(genres: IGenre[]) {
     this.types = genres;
+  }
+
+  getOriginalImages(images: IImage[]) {
+    //this.types = genres;
+  }
+
+  getImageFiles(imageFiles: IImagePreview[]) {
+    this.imageFiles = imageFiles;
   }
 }

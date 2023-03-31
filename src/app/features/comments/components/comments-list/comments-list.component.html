@@ -1,22 +1,4 @@
 <div class="comment-list">
-    <div class="comment" *ngFor="let com of comments">
-        <div class="head">
-            <div>
-                <img src="resources/img1.png" alt="Avatar">
-                <p>{{com.ownerUserName}}</p>
-                <p>{{com.creationTime}}</p>
-                <p>{{com.isChanged?"changed":""}}</p>
-            </div>
-            <i class="material-icons" translate="no">more_vert</i>
-        </div>
-        <p>{{com.text}}</p>
-        <div class="footer">
-            <i *ngIf="com.isLiked==true" class="material-icons text-orange" translate="no" (click)="removeLike(com.id)">thumb_up</i>
-            <i *ngIf="com.isLiked==false" class="material-icons text-blue-3" translate="no" (click)="addLike(com.id)">thumb_up</i>
-            
-            <i *ngIf="com.isDisLiked==true" class="material-icons text-orange" translate="no" (click)="removeDisLike(com.id)">thumb_down</i>
-            <i *ngIf="com.isDisLiked==false" class="material-icons text-blue-3" translate="no" (click)="addDisLike(com.id)">thumb_down</i>
-            <p><a href="">відповісти</a></p>
-        </div>
-    </div>
+    <app-comment *ngFor="let comm of comments" [comment]="comm">
+    </app-comment>
 </div>

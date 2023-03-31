@@ -1,67 +1,155 @@
 @import '/src/app/styles/themes/white.scss';
 
-header{
-    background-color: $red-1;
+header {
     display: flex;
-    padding: 0 15px;
 }
-nav{
+*{
+    z-index: 2;
+}
+.nav-pc {
+    padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    background-color: $red-1;
+    position: fixed;
+    box-sizing: border-box;
 }
-ul{
+
+.nav-pc ul {
     list-style-type: none;
     color: $white;
     display: flex;
     gap: 10px;
 }
-.v-center{
+
+.v-center {
     display: flex;
     align-items: center;
 }
 
-h1{
-    color: red;
+h1 {
+    color: $red-4;
     margin: 0;
     padding: 0;
 }
-a{
+
+a {
     color: $white;
     text-decoration: none;
     font-weight: bold;
     margin: 0;
     padding: 0;
 }
-a:hover{
+
+a:hover {
     color: $blue-1;
 }
-a:active{
+
+a:active {
     color: $blue-2;
 }
 
-.events:hover{
-    color:$red-2;
-}
-.events:active{
-    color:$red-3;
+.events:hover {
+    color: $red-3;
 }
 
-.places:hover{
-    color:$orange-2;
-}
-.places:active{
-    color:$orange-3;
+.events:active {
+    color: $red-4;
 }
 
-.auth:hover{
+.places:hover {
+    color: $orange-4;
+}
+
+.places:active {
+    color: $orange-5;
+}
+
+.auth:hover {
     color: $blue-2;
 }
-.auth:active{
+
+.auth:active {
     color: $blue-3;
 }
 
-.unSelect{
+.unSelect {
     cursor: pointer;
+}
+
+
+i {
+    cursor: pointer;
+    user-select: none;
+}
+
+.nav-phone {
+    width: 100%;
+    background-color: $red-2;
+    position: fixed;
+    bottom: 0px;
+    padding: 5px 0;
+}
+
+.nav-phone ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.nav-phone ul li {
+    width: 15%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-phone ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav-phone p{
+    margin: 0;
+}
+
+
+.fs-32 {
+    font-size: 32px;
+}
+
+.nav-top{
+    background-color: $red-2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 15px;
+    width: 100%;
+    position: fixed;
+    box-sizing: border-box;
+}
+.nav-top i{
+    display: block;
+    color: $white;
+    cursor: pointer;
+    user-select: none;
+}
+.nav-top i:hover{
+    color: $blue-2;
+}
+.nav-top i:active{
+    color: $blue-3;
+}
+
+.nav-top>div{
+    display: flex;
+    gap: 10px;
 }
