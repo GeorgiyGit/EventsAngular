@@ -1,0 +1,74 @@
+<section>
+    <div class="main-cont white-cont">
+      <div class="information">
+        <app-carousel [images]="event.images"
+                      [title]="event.title"></app-carousel>
+        <div class="types-and-favorite">
+          <div class="types">
+            <div *ngFor="let type of event.types">
+              {{type.name}}
+            </div>
+          </div>
+          <div class="favorite-cont">
+            <app-event-like-button [id]="event.id"></app-event-like-button>
+            <app-event-favorite-button [eventId]="event.id"></app-event-favorite-button>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <p>{{event.text}}</p>
+        </div>
+  
+        <hr>
+  
+        <div class="references">
+          <div class="other-cont">
+            <a *ngIf="event.facebook!=null && event.facebook!=''" href={{event.facebook}}>
+              <div class="facebook text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200"
+                  height="200" viewBox="0 0 200 200">
+                  <image id="Шар_1" data-name="Шар 1" x="20" y="20" width="160" height="160"
+                    xlink:href="data:img/png;base64,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" />
+                </svg>
+                <p>Visit facebook</p>
+              </div>
+            </a>
+            <a *ngIf="event.instagram!=null && event.instagram!=''" href={{event.instagram}}>
+              <div class="instagram text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256"
+                  width="60px" height="60px" fill-rule="nonzero">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <g transform="scale(8.53333,8.53333)">
+                      <path
+                        d="M9.99805,3c-3.859,0 -6.99805,3.14195 -6.99805,7.00195v10c0,3.859 3.14195,6.99805 7.00195,6.99805h10c3.859,0 6.99805,-3.14195 6.99805,-7.00195v-10c0,-3.859 -3.14195,-6.99805 -7.00195,-6.99805zM22,7c0.552,0 1,0.448 1,1c0,0.552 -0.448,1 -1,1c-0.552,0 -1,-0.448 -1,-1c0,-0.552 0.448,-1 1,-1zM15,9c3.309,0 6,2.691 6,6c0,3.309 -2.691,6 -6,6c-3.309,0 -6,-2.691 -6,-6c0,-3.309 2.691,-6 6,-6zM15,11c-2.20914,0 -4,1.79086 -4,4c0,2.20914 1.79086,4 4,4c2.20914,0 4,-1.79086 4,-4c0,-2.20914 -1.79086,-4 -4,-4z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+                <p>Visit instagram</p>
+              </div>
+            </a>
+          </div>
+  
+        </div>
+        <div class="mb-20">
+          <app-add-comment [eventId]="event.id"></app-add-comment>
+        </div>
+        <div>
+          <app-comments-list [eventId]="event.id"></app-comments-list>
+        </div>
+      </div>
+      <!--
+      <div>
+        <div class="map">
+          <p>{{place.googleMaps}}</p>
+        </div>
+      </div>-->
+  
+    </div>
+    
+  
+  </section>

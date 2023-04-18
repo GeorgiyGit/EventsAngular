@@ -1,6 +1,6 @@
 import { ISimplePlace } from './../models/simple-place';
 import { Injectable } from '@angular/core';
-import { IPlaceFilter, OrderType } from '../models/place-filter';
+import { IPlaceFilter } from '../models/place-filter';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,6 @@ export class PlaceFilterService {
   constructor() { }
 
   getFilteredPlaces(places: ISimplePlace[], filter: IPlaceFilter): ISimplePlace[] {
-
     let tempPlaces = [];
     if (filter.filterStr == '') tempPlaces = places;
     else tempPlaces = places.filter(x => x.name.toUpperCase().includes(filter.filterStr.toUpperCase()));

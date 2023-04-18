@@ -14,7 +14,7 @@ export interface IPlace {
     site?:string,
     facebook?:string,
     instagram?:string,
-    googleMaps:string,
+    //googleMaps:string,
 
     ownerId:string,
     ownerUserName:string
@@ -23,5 +23,6 @@ export interface IPlace {
     likedUsers:string[],
     favoriteUsers:string[],
     events:number[],
-    images:IImage[]
+    images:IImage[],
+    isDeleted:boolean;
 }

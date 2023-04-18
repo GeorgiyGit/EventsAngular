@@ -23,7 +23,6 @@ export class CustomerPlaceDetailsComponent {
       this.placesService.getById(parseInt(id))
         .subscribe(res => {
           this.place=res;
-          console.log(this.place);
         });
 
     if(this.accountService.isAuthenticated()){

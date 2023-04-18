@@ -1,0 +1,20 @@
+@import "/src/app/styles/base/inputs.scss",
+"/src/app/styles/base/colors.scss",
+"/src/app/styles/base/base.scss";
+
+form{
+    padding-top: 20px;
+    >div{
+        display: flex;
+        gap: 10px;
+        margin: 20px 0;
+    }
+    div{
+        width: 100%;
+    }
+}
+
+h2{
+    text-align: center;
+    color: $blue-3;
+}

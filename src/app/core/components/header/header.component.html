@@ -6,6 +6,7 @@
                 <li><a routerLink="/home">Home</a></li>
                 <li><a routerLink="/events" class="events">Events</a></li>
                 <li><a routerLink="/places" class="places">Places</a></li>
+                <li><a [routerLink]="[{ outlets: { overflow: ['favorite'] } }]">Favorite</a></li>
                 <li *ngIf="accountService.isAuthenticated() && (accountService.isUserAdmin()||accountService.isUserModerator())"
                     class="dropdown">
                     <a routerLink="/manager">Manager</a>
@@ -13,6 +14,7 @@
             </ul>
         </div>
         <ul>
+            <li><a routerLink="/account" class="auth">Account</a></li>
             <li><a routerLink="/register" class="auth">Register</a></li>
             <li>
                 <a *ngIf="!accountService.isAuthenticated()" routerLink="/log-in" class="auth">Log In</a>
@@ -34,32 +36,32 @@
         <ul>
             <li>
                 <a routerLink="/events" class="events">
-                    <i class="material-icons orange-i" translate="no">celebration</i>
+                    <i class="material-icons" translate="no">celebration</i>
                     <p>Events</p>
                 </a>
             </li>
             <li>
                 <a routerLink="/places" class="places">
-                    <i class="material-icons orange-i" translate="no">location_on</i>
+                    <i class="material-icons" translate="no">location_on</i>
                     <p>Places</p>
                 </a>
             </li>
             <li class="add">
                 <a routerLink="/events" class="events">
-                    <i class="material-icons orange-i" translate="no" style="font-size: 48px;">add_circle</i>
+                    <i class="material-icons" translate="no" style="font-size: 48px;">add_circle</i>
                 </a>
             </li>
     
             <li>
                 <a routerLink="/places" class="places">
-                    <i class="material-icons orange-i" translate="no">hotel_class</i>
+                    <i class="material-icons" translate="no">hotel_class</i>
                     <p>Favorite</p>
                 </a>
             </li>
     
             <li>
                 <a routerLink="/auth" class="auth">
-                    <i class="material-icons orange-i" translate="no">account_circle</i>
+                    <i class="material-icons" translate="no">account_circle</i>
                     <p>Account</p>
                 </a>
             </li>

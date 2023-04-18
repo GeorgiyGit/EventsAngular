@@ -14,7 +14,7 @@ const routes: Route[] = [
         component: CustomerAddPlaceComponent
     },
     {
-        path:'place/:id',
+        path:'details/:id',
         component:CustomerPlaceDetailsComponent
     }
 ]

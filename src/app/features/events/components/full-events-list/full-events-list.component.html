@@ -15,6 +15,7 @@
                 <th>Owner Id</th>
                 <th>Owner Username</th>
                 <th>Types</th>
+                <th>Is deleted</th>
                 <th></th>
             </tr>
         </thead>
@@ -37,6 +38,7 @@
                         <li *ngFor="let type of event.types">{{type.name}}</li>
                     </ul>
                 </td>
+                <td>{{event.isDeleted}}</td>
                 <td>
                     <div class="buttons">
                         <button class="edit" (click)="editEvent(event.id)">Edit</button>

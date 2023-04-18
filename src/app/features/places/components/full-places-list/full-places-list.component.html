@@ -9,11 +9,12 @@
                 <th>Facebook</th>
                 <th>Instagram</th>
                 <th>Site</th>
-                <th>Google Maps</th>
+                <!--<th>Google Maps</th>-->
                 <th>Owner Id</th>
                 <th>Owner Username</th>
                 <th>Types</th>
                 <th>Events</th>
+                <th>Is deleted</th>
                 <th></th>
             </tr>
         </thead>
@@ -26,7 +27,7 @@
                 <td>{{place.facebook}}</td>
                 <td>{{place.instagram}}</td>
                 <td>{{place.site}}</td>
-                <td>{{place.googleMaps}}</td>
+                <!--<td>{{place.googleMaps}}</td>-->
                 <td>{{place.ownerId}}</td>
                 <td>{{place.ownerUserName}}</td>
                 <td>
@@ -39,6 +40,7 @@
                         <li *ngFor="let event of place.events">{{event}}</li>
                     </ul>
                 </td>
+                <td>{{place.isDeleted}}</td>
                 <td>
                     <div class="buttons">
                         <button class="edit" (click)="editPlace(place.id)">Edit</button>

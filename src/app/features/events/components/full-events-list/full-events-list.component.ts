@@ -31,7 +31,8 @@ export class FullEventsListComponent {
   }
   deleteEvent(id: number): void {
     this.eventsService.deleteEvent(id).subscribe(res => {
-      this.events.splice(this.events.findIndex(e => e.id == id), 1);
+      var event = this.events.find(e => e.id == id);
+      if (event != null) event.isDeleted = true;
     }, error => {
       console.log(error);
     })

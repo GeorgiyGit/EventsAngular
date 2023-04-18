@@ -1,22 +1,14 @@
 import { IImage } from "../../images/models/image";
+import { IFullLocation } from "./location/full-location";
 
 export interface IUser {
     id:string,
     userName:string,
     email:string,
+    phoneNumber:string,
     creationTime:Date,
-
-    createdComments:number[],
-    likedComments:number[],
-    dislikedComments:number[],
-
-    createdEvents:number[],
-    likedEvents:number[],
-    favoriteEvents:number[],
-
-    createdPlaces:number[],
-    likedPlaces:number[],
-    favoritePlaces:number[],
-
-    Avatar?:IImage
+    
+    avatar?:IImage,
+    birthDate:Date,
+    location:IFullLocation
 }

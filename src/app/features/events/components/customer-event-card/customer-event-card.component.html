@@ -1,6 +1,6 @@
 <div class="card red-back-2">
     <a (click)="click(event.id)">
-        <div class="img-cont">
+        <div class="img-cont" (mouseover)="hover=true" (mouseleave)="hover=false" [style.background-image]="hover==true? url2:url">
             <p *ngFor="let type of event.types | slice:0:3" class="type">{{type.name}}</p>
         </div>
         <div class="main-card-cont red-back-2">

@@ -1,1 +1,17 @@
-<p>customer-event-block works!</p>
+<div class="block-cont">
+    <div class="category-img-cont" [style.background-image]="url" (click)="click()">
+        <p *ngFor="let type of event.types | slice:0:3" class="type">{{type.name}}</p>
+    </div>
+    <div class="main-cont">
+        <div class="inf-cont">
+            <p>{{event.title}}</p>
+            <p>{{event.eventTime}}</p>
+            <p>{{event.route}}</p>
+        </div>
+        <div class="back-cont">
+            <i class="material-icons close" translate="no" (click)="remove()">close</i>
+            <p>{{event.price}} грн</p>
+        </div>
+    </div>
+</div>
+<hr>

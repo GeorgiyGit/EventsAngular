@@ -99,6 +99,12 @@
                 <app-select-genres (selectedGenreEvent)="addGenre($event)" [placeholder]="placeholder"
                     [selectedGenres]="selectedGenres" [color]="'red'"></app-select-genres>
             </div>
+
+            <div class="w-100">
+                <app-customer-add-images (selectedImagesEvent)="getOriginalImages($event)"
+                                         (selectedImageFilesEvent)="getImageFiles($event)"
+                                         [color]="'red'"></app-customer-add-images>
+            </div>
         </div>
         <button type="submit" class="btn-blue">Let's start</button>
     </form>

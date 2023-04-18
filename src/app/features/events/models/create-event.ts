@@ -9,5 +9,6 @@ export interface ICreateEvent {
     instagram?:string,
     eventTime:Date,
     types:number[],
+    images:File[],
     price:number
 }

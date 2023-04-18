@@ -8,22 +8,24 @@
 
 section {
     padding: 50px;
-    height: 100%;
+    //height: 100%;
     min-height: 100vh;
     background: linear-gradient(180deg,
             $orange-0 0%,
             $orange-2 100%);
 }
-.white-cont{
+
+.white-cont {
     box-shadow: 0px 0px 10px 5px $red-3;
     background-color: $white;
 }
 
 @media screen and (max-width:500px) {
-    section{
+    section {
         padding: 0;
     }
-    .white-cont{
+
+    .white-cont {
         box-shadow: 0 0 0 0 white;
         border-radius: 0;
     }
@@ -31,6 +33,49 @@ section {
 
 
 
-.filter-cont button{
+.filter-cont button {
     margin-top: 0;
+}
+
+
+.uloaded-elem {
+    height: 100%;
+
+    background-color: $orange-2;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 1px $gray;
+
+
+    .phantom-img {
+        height: 100px;
+        background-color: $blue-2;
+        padding: 10px;
+
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+
+    .text-cont {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        padding: 10px;
+        
+        border-end-end-radius: 10px;
+        border-end-start-radius: 10px;
+
+        .phantom-p {
+            height: 15px;
+            width: 100%;
+            background-color: $white;
+        }
+    }
+}
+
+h1{
+    color: $blue-3;
+    font-size: 3em;
+    text-align: center;
+    margin: 30px;
 }

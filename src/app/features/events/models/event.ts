@@ -27,5 +27,6 @@ export interface IEvent {
     comments:IComment[],
     images:IImage[],
 
-    fullRating:number
+    fullRating:number,
+    isDeleted:boolean;
 }

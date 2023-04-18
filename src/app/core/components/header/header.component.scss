@@ -3,25 +3,27 @@
 header {
     display: flex;
 }
-*{
+
+* {
     z-index: 2;
 }
+
 .nav-pc {
     padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: $red-1;
+    background-color: $red-2;
     position: fixed;
     box-sizing: border-box;
-}
 
-.nav-pc ul {
-    list-style-type: none;
-    color: $white;
-    display: flex;
-    gap: 10px;
+    ul {
+        list-style-type: none;
+        color: $white;
+        display: flex;
+        gap: 10px;
+    }
 }
 
 .v-center {
@@ -44,11 +46,11 @@ a {
 }
 
 a:hover {
-    color: $blue-1;
+    color: $blue-3;
 }
 
 a:active {
-    color: $blue-2;
+    color: $blue-4;
 }
 
 .events:hover {
@@ -68,11 +70,11 @@ a:active {
 }
 
 .auth:hover {
-    color: $blue-2;
+    color: $blue-3;
 }
 
 .auth:active {
-    color: $blue-3;
+    color: $blue-4;
 }
 
 .unSelect {
@@ -91,34 +93,34 @@ i {
     position: fixed;
     bottom: 0px;
     padding: 5px 0;
-}
 
-.nav-phone ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    p {
+        margin: 0;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
 
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-}
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
 
-.nav-phone ul li {
-    width: 15%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        li {
+            width: 15%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.nav-phone ul li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.nav-phone p{
-    margin: 0;
+            a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
 }
 
 
@@ -126,7 +128,7 @@ i {
     font-size: 32px;
 }
 
-.nav-top{
+.nav-top {
     background-color: $red-2;
     display: flex;
     justify-content: space-between;
@@ -135,21 +137,22 @@ i {
     width: 100%;
     position: fixed;
     box-sizing: border-box;
-}
-.nav-top i{
-    display: block;
-    color: $white;
-    cursor: pointer;
-    user-select: none;
-}
-.nav-top i:hover{
-    color: $blue-2;
-}
-.nav-top i:active{
-    color: $blue-3;
+
+    i {
+        display: block;
+        color: $white;
+        cursor: pointer;
+        user-select: none;
+    }
+    i:hover {
+        color: $blue-2;
+    }
+    i:active {
+        color: $blue-3;
+    }
 }
 
-.nav-top>div{
+.nav-top>div {
     display: flex;
     gap: 10px;
 }

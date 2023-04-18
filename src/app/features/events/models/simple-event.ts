@@ -6,7 +6,7 @@ export interface ISimpleEvent {
     title:string,
     eventTime:Date,
     route:string,
-    image:IImage,
+    images:IImage[],
     fullRating:number,
     types:IGenre[]
 }

@@ -1,0 +1,74 @@
+@import '/src/app/styles/base/buttons.scss',
+        '/src/app/styles/themes/white.scss',
+        '/src/app/styles/cards/cards-cont.scss',
+        '/src/app/styles/base/base.scss';
+agm-map {
+    height: 300px;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  svg{
+    height: 32px;
+    width: 32px;
+}
+.other-cont{
+  width: 33%;
+}
+section {
+  padding: 50px;
+  height: 100%;
+}
+.types{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.types div{
+  border-radius: 15px;
+  padding: 3px 15px;
+}
+.types div:hover{
+  color: $white;
+  cursor: pointer;
+}
+.map{
+  height: 100px;
+  flex: 1;
+}
+.main-cont{
+  display: flex;
+  gap: 40px;
+  background-color: $white;
+}
+
+.information{
+  flex: 2;
+}
+
+.types-and-favorite{
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+.references{
+  margin:50px 0;
+}
+@media screen and (max-width:500px) {
+  section{
+      padding: 0;
+  }
+  .white-cont{
+      box-shadow: 0 0 0 0 $white;
+      border-radius: 0;
+  }
+}
+
+.favorite-cont{
+  display: flex;
+  gap: 10px;
+}
+img{
+  width:100%;
+}

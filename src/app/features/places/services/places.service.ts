@@ -42,7 +42,7 @@ export class PlacesService {
         if (model.facebook != null) formData.append("facebook", model.facebook);
         if (model.instagram != null) formData.append("instagram", model.instagram);
 
-        formData.append("googleMaps", model.googleMaps);
+        formData.append("googleMaps", "http://none.com");
 
 
         for (var i = 0; i < model.types.length; i++) {

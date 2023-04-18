@@ -1,0 +1,6 @@
+<div class="cont">
+    <div *ngFor="let place of places">
+        <app-customer-place-block [place]="place"
+                                  (removeEvent)="removeEvent($event)"></app-customer-place-block>
+    </div>
+</div>

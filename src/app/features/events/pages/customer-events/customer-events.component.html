@@ -1,9 +1,14 @@
 <section class="place-list">
     <div class="white-cont">
         <app-customer-add-event-button></app-customer-add-event-button>
-        <h1>Place List</h1>
+        <h1>Event List</h1>
         <div class="mb-20">
-            <app-events-filter [events]="events" (filteredEventsEvent)="filtered($event)"></app-events-filter>
+            <app-events-filter *ngIf="!isPhone" (filterEvent)="filterChanged($event)"></app-events-filter>
+            <button *ngIf="isPhone" (click)="showFilter()" class="btn-orange">Filter</button>
+            <div class="input-cont" *ngIf="isPhone">
+                <i class="material-icons orange-i" translate="no">search</i>
+                <input type="text" (keyup)="filterStrChanged($event)" class="orange-input">
+            </div>
         </div>
         <div class="card-cont">
             <div *ngFor="let event of filteredEvents">

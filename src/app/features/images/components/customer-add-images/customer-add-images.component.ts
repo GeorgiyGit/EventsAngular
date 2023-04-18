@@ -10,6 +10,8 @@ import { IImage } from '../../models/image';
 export class CustomerAddImagesComponent implements OnInit {
 
   @Input() originalImages: IImage[] = [];
+  @Input() color:string;
+
 
   @Output() selectedImageFilesEvent = new EventEmitter<IImagePreview[]>();
   @Output() selectedImagesEvent = new EventEmitter<IImage[]>();

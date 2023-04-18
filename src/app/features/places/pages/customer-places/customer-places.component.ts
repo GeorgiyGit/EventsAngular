@@ -14,6 +14,10 @@ export class CustomerPlacesComponent {
   places: ISimplePlace[] = [];
   filteredPlaces: ISimplePlace[] = [];
 
+  isLoaded:boolean=false;
+  loadedElements:number[]=[1,2,3,4,5];
+
+
   filter: IPlaceFilter={
     genres:[],
     orderType:0,
@@ -32,7 +36,8 @@ export class CustomerPlacesComponent {
     this.placesService.getSimplePlaces().subscribe(result => {
       this.places = result;
       this.filteredPlaces = this.places;
-      console.log(this.places);
+      
+      this.isLoaded=true;
     });
 
     this.isPhone=false;
@@ -81,4 +86,6 @@ export class CustomerPlacesComponent {
     this.filter.filterStr = $event.target.value;
     this.filtering();
   }
+
+  phantomClick(){}
 }

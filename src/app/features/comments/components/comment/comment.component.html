@@ -21,7 +21,7 @@
     </div>
 </div>
 <p class="mt-5 mb-0" *ngIf="subCount!=0"><a (click)="subComments()">View {{subCount}} comments</a></p>
-<div class="w-90 child-cont">
+<div class="w-95 child-cont">
     <app-add-comment *ngIf="isRespond"
                      [parentId]="comment.id"
                      (addCommentEmitter)="closeRespond($event)"></app-add-comment>

@@ -1,5 +1,6 @@
 export interface IImage {
     id?:number,
-    title:string,
+    name:string,
+    fullName:string,
     path:string
 }

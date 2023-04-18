@@ -1,1 +1,15 @@
-<p>customer-place-block works!</p>
+<div class="block-cont">
+    <div class="category-img-cont" [style.background-image]="url" (click)="click()">
+        <p *ngFor="let type of place.types | slice:0:3" class="type">{{type.name}}</p>
+    </div>
+    <div class="main-cont">
+        <div class="inf-cont">
+            <p>{{place.name}}</p>
+            <p>{{place.route}}</p>
+        </div>
+        <div class="back-cont">
+            <i class="material-icons close" translate="no" (click)="remove()">close</i>
+        </div>
+    </div>
+</div>
+<hr>

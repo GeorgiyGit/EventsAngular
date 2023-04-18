@@ -1,0 +1,6 @@
+<div class="cont">
+    <div *ngFor="let event of events">
+        <app-customer-event-block [event]="event"
+                                  (removeEvent)="removeEvent($event)"></app-customer-event-block>
+    </div>
+</div>

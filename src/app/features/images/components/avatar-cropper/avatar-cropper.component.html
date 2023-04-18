@@ -1,0 +1,21 @@
+<section>
+    <div class="main-div">
+        <div class="close-div">
+            <i class="material-icons close" translate="no" (click)="closeOverflow()">close</i>
+        </div>
+        <h2>Change your avatar</h2>
+        <div>
+            <div class="centered">
+                <label for="avatar">Load image</label>
+            </div>
+            <input type="file" id="avatar" (change)="fileChangeEvent($event)" />
+            <hr>
+            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1" x
+                [resizeToWidth]="400" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+            <hr>
+        </div>
+
+        <div class="centered"><button (click)="sendImage()">Save Avatar</button></div>
+    </div>
+</section>

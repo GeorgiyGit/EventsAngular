@@ -80,8 +80,14 @@ i {
 
     width: 100%;
     height: 100%;
-    border: 3px solid $orange-4;
     border-radius: 10px;
+}
+
+.orange-border{
+    border: 3px solid $orange-4;
+}
+.red-border{
+    border: 3px solid $red-3;
 }
 
 .inside-image>i {

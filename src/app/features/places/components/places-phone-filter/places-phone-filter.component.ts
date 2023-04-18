@@ -1,4 +1,4 @@
-import { IPlaceFilter, OrderType } from '../../models/place-filter';
+import { IPlaceFilter } from '../../models/place-filter';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IGenre } from 'src/app/features/genres/models/genre';
@@ -11,9 +11,6 @@ import { IGenre } from 'src/app/features/genres/models/genre';
 export class PlacesPhoneFilterComponent implements OnInit{
 
   @Output() filterEvent = new EventEmitter<IPlaceFilter>();
-
-
-  public rara: OrderType = OrderType.MorePopular;
 
   constructor(private fb: FormBuilder){}
   filterForm:FormGroup;
@@ -31,7 +28,7 @@ export class PlacesPhoneFilterComponent implements OnInit{
   
   ngOnInit(): void {
     this.filterForm=this.fb.group({
-      orderType:[OrderType.MorePopular]
+      orderType:[]
     });
   }
 

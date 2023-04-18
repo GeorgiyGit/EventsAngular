@@ -6,6 +6,10 @@ import { environment } from 'src/environments/environment.prod';
 import { AccountService } from '../../account/services/account.service';
 import { IEvent } from '../../events/models/event';
 import { IPlace } from '../../places/models/place';
+import { ISimplePlace } from '../../places/models/simple-place';
+import { ISimpleEvent } from '../../events/models/simple-event';
+import { IFavoriteEvent } from '../../events/models/favorite-event';
+import { IFavoritePlace } from '../../places/models/favorite-place';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +65,7 @@ export class FavoriteService {
   }
 
 
-  getFavoritePlaces():Observable<IPlace[]>{
+  getFavoritePlaces():Observable<IFavoritePlace[]>{
     let token = this.accountService.getToken();
     if(token==null){
       return new Observable<[]>;
@@ -72,10 +76,10 @@ export class FavoriteService {
             Authorization: 'Bearer '+ token
         })
     };
-    return this.http.get<IPlace[]>(this.controllerUrl+"get-places",httpOptions);
+    return this.http.get<IFavoritePlace[]>(this.controllerUrl+"get-places",httpOptions);
   }
 
-  getFavoriteEvents():Observable<IEvent[]>{
+  getFavoriteEvents():Observable<IFavoriteEvent[]>{
     let token = this.accountService.getToken();
     if(token==null){
       return new Observable<[]>;
@@ -86,7 +90,7 @@ export class FavoriteService {
             Authorization: 'Bearer '+ token
         })
     };
-    return this.http.get<IEvent[]>(this.controllerUrl+"get-events",httpOptions);
+    return this.http.get<IFavoriteEvent[]>(this.controllerUrl+"get-events",httpOptions);
   }
 
 

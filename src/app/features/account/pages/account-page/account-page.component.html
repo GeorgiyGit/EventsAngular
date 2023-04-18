@@ -1,0 +1,32 @@
+<section>
+    <div class="main-cont">
+        <div class="user-short-info">
+            <img [src]="avatarUrl" alt="User Avatar">
+            <div class="text-info">
+                <div class="name-email">
+                    <h4>{{user.userName}}</h4>
+                    <p>{{user.email}}</p>
+                </div>
+                <i class="material-icons blue-i" translate="no" (click)="openCropper()">change_circle</i>
+            </div>
+        </div>
+        <div class="other-info">
+            <div>
+                <ul>
+                    <li [ngClass]="isUserInformationOpen?'enable_info':'disable_info'">
+                        <a (click)="openUserInfo()">User Information</a>
+                    </li>
+                    <li [ngClass]="isEventsOpen?'enable_event':'disable_event'">
+                        <a (click)="openEvents()">Created events</a>
+                    </li>
+                    <li [ngClass]="isPlacesOpen?'enable_place':'disable_place'">
+                        <a (click)="openPlaces()">Created places</a>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <router-outlet></router-outlet>
+        </div>
+        
+    </div>
+</section>

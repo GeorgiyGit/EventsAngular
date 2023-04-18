@@ -18,15 +18,23 @@ import { ErrorHandlerService } from './core/services/error-handler.service';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { CustomerAddImagesComponent } from './features/images/components/customer-add-images/customer-add-images.component';
 import { DndDirective } from './dnd.directive';
-import { CarouselComponent } from './features/images/components/carousel/carousel.component';
-import { PlaceGoogleMapComponent } from './features/google-map/components/place-google-map/place-google-map.component';
-import { AgmCoreModule } from '@agm/core';
+import { CarouselComponent } from './features/images/components/carousel/carousel.component';//import { AgmCoreModule } from '@agm/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { CustomerEventDetailsComponent } from './features/events/pages/customer-event-details/customer-event-details.component';
+import { EventLikeButtonComponent } from './features/likes/components/event-like-button/event-like-button.component';
+import { EventFavoriteButtonComponent } from './features/favorite/components/event-favorite-button/event-favorite-button.component';
+import { FavoritePlacesComponent } from './features/favorite/components/favorite-places/favorite-places.component';
+import { FavoriteComponent } from './features/favorite/pages/favorite/favorite.component';
+import { AccountPageComponent } from './features/account/pages/account-page/account-page.component';
+import { UserInformationComponent } from './features/account/components/user-information/user-information.component';
+import { UserCreatedPlacesComponent } from './features/account/components/user-created-places/user-created-places.component';
+import { UserCreatedEventsComponent } from './features/account/components/user-created-events/user-created-events.component';
+import { AvatarCropperComponent } from './features/images/components/avatar-cropper/avatar-cropper.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
     bootstrap: [CoreComponent],
     declarations: [
-  
-    PlaceGoogleMapComponent
   ],
     imports: [
         BrowserModule,
@@ -37,9 +45,13 @@ import { AgmCoreModule } from '@agm/core';
         ToastrModule.forRoot(),
         BrowserAnimationsModule,
         SocialLoginModule,
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyD3m4Ebxh4hafQn_GePd1VvYfEMWTMIKwI'
-          })
+        MatToolbarModule
+        //AgmCoreModule.forRoot({
+            //apiKey: 'AIzaSyD3m4Ebxh4hafQn_GePd1VvYfEMWTMIKwI'
+          //})
+    ],
+    exports:[
+        RouterModule
     ],
     providers:[
         {

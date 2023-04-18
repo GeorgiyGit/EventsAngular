@@ -10,7 +10,7 @@ export interface ICreatePlace {
     site?:string,
     facebook?:string,
     instagram?:string,
-    googleMaps:string,
+    //googleMaps:string,
 
     types:number[],
     images:File[]

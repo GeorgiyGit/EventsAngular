@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IGenre } from 'src/app/features/genres/models/genre';
+import { IImage } from 'src/app/features/images/models/image';
+import { IImagePreview } from 'src/app/features/images/models/imagePreview';
 import { ISimplePlace } from 'src/app/features/places/models/simple-place';
 import { ICreateEvent } from '../../models/create-event';
 import { EventsService } from '../../services/events.service';
@@ -17,6 +19,8 @@ export class CustomerAddEventComponent {
   id: string;
   isAddMode: boolean;
   eventForm: FormGroup;
+
+  imageFiles: IImagePreview[] = [];
 
   get formValue() {
     return this.eventForm.value as ICreateEvent;
@@ -103,6 +107,14 @@ export class CustomerAddEventComponent {
     if (_event.instagram == '') _event.instagram = undefined;
 
     if (this.isAddMode) {
+      let files: File[] = [];
+
+      for (let image of this.imageFiles) {
+        files.push(image.imageFile);
+      }
+
+      _event.images = files;
+      
       this.eventsService.addEvent(_event).subscribe(result => {
         console.log(result);
 
@@ -141,8 +153,12 @@ export class CustomerAddEventComponent {
   selectPlace(place: ISimplePlace) {
     this.placeId = place.id;
   }
-  //addImage(image: File) {
-  //this.image = image;
-  //console.log('Image is updated');
-  //}
+  
+  getOriginalImages(images: IImage[]) {
+    //this.types = genres;
+  }
+
+  getImageFiles(imageFiles: IImagePreview[]) {
+    this.imageFiles = imageFiles;
+  }
 }

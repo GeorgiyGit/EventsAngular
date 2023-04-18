@@ -1,0 +1,4 @@
+<div>
+    <button (click)="onClick()" *ngIf="isEventFavorite" class="button delete">Remove from favorite</button>
+    <button (click)="onClick()" *ngIf="!isEventFavorite" class="button edit">Add to favorite</button>
+</div>

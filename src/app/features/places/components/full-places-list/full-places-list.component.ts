@@ -32,7 +32,8 @@ export class FullPlacesListComponent {
   }
   deletePlace(id: number): void {
     this.placesService.deletePlace(id).subscribe(res => {
-      this.places.splice(this.places.findIndex(p => p.id == id), 1);
+      var place = this.places.find(e => e.id == id);
+      if (place != null) place.isDeleted = true;
     }, error => {
       console.log(error);
     })

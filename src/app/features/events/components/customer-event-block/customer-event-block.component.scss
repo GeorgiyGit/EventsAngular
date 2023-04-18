@@ -1,0 +1,68 @@
+@import '/src/app/styles/themes/white.scss';
+
+.category-img-cont {
+    width: 200px;
+    height: 100px;
+    padding: 5px;
+    background-size: cover;
+
+    cursor: pointer;
+
+    p {
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.299);
+        text-align: left;
+        border-radius: 5px;
+        color: $white;
+        margin: 0;
+        margin-bottom: 3px;
+        width: 50px;
+    }
+}
+
+.block-cont{
+    display: flex;
+    gap: 10px;
+}
+
+.main-cont {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+
+    .inf-cont {
+        width: 100%;
+        height:auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        p{
+            margin: 0;
+        }
+    }
+
+    .back-cont {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        align-items: center;
+
+        .close{
+            cursor: pointer;
+            color: $red-4;
+            user-select: none;
+        }
+
+        p{
+            white-space: nowrap;
+        }
+    }
+}
+hr{
+    color: $blue-2;
+    margin: 0;
+    margin-top: 10px;
+}

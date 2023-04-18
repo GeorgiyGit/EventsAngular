@@ -37,7 +37,7 @@ export class GoogleRegisterBtnComponent {
         next: (res) => {
             this.accountService.saveToken(res.token);
             //this.accountService.sendAuthStateChangeNotification(res.isAuthSuccessful);
-            //this.router.navigate([this.returnUrl]);
+            this.router.navigateByUrl('/events');
       },
         error: (err: HttpErrorResponse) => {
           //this.errorMessage = err.message;

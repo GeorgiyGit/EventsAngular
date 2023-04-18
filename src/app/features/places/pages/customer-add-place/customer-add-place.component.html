@@ -63,7 +63,8 @@
                 </div>
             </div>
 
-            <div class="w-100">
+
+            <!--<div class="w-100">
                 <div class="input-cont">
                     <i class="material-icons orange-i" translate="no">pin_drop</i>
                     <input id="googleMaps" type="url" formControlName="googleMaps" placeholder="Google maps" class="orange-input">
@@ -71,7 +72,7 @@
                 <div *ngIf="googleMaps.invalid && (googleMaps.touched)">
                     <p *ngIf="googleMaps.errors?.['required']" class="error">Google Maps is required.</p>
                 </div>
-            </div>
+            </div>-->
             <div class="w-100">
                 <div class="select-genres">
                     <app-select-genres (selectedGenreEvent)="addParent($event)" 
@@ -79,14 +80,14 @@
                                        [selectedGenres]="selectedGenres"
                                        [color]="'orange'"></app-select-genres>
                 </div>
-                
             </div>
             <!--<div class="w-100">
                 <app-add-images (addImageEvent)="addImage($event)"></app-add-images>
             </div>!-->
             <div class="w-100">
                 <app-customer-add-images (selectedImagesEvent)="getOriginalImages($event)"
-                                         (selectedImageFilesEvent)="getImageFiles($event)"></app-customer-add-images>
+                                         (selectedImageFilesEvent)="getImageFiles($event)"
+                                         [color]="'orange'"></app-customer-add-images>
             </div>
         </div>
         <button type="submit" class="btn-blue">Let's start</button>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaceGoogleMapComponent } from './place-google-map.component';
+import { FavoritePlacesComponent } from './favorite-places.component';
 
-describe('PlaceGoogleMapComponent', () => {
-  let component: PlaceGoogleMapComponent;
-  let fixture: ComponentFixture<PlaceGoogleMapComponent>;
+describe('FavoritePlacesComponent', () => {
+  let component: FavoritePlacesComponent;
+  let fixture: ComponentFixture<FavoritePlacesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaceGoogleMapComponent ]
+      declarations: [ FavoritePlacesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PlaceGoogleMapComponent);
+    fixture = TestBed.createComponent(FavoritePlacesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

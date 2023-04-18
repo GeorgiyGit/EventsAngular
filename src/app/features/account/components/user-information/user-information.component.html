@@ -1,0 +1,78 @@
+<form [formGroup]="userForm">
+    <h2>Detailed information</h2>
+    <div>
+        <div class="w-100">
+            <div class="input-cont">
+                <i class="material-icons blue-i" translate="no">badge</i>
+                <input id="phoneNumber" type="text" formControlName="userName" placeholder="User name"
+                    class="blue-input">
+            </div>
+            <div *ngIf="userName.invalid && (userName.touched)">
+                <p *ngIf="userName.errors?.['required']" class="error">User name is required.</p>
+                <p *ngIf="userName.errors?.['minlength']" class="error">Minimum length is 5</p>
+                <p *ngIf="userName.errors?.['maxlength']" class="error">Maximum length is 300</p>
+            </div>
+        </div>
+
+        <div class="w-100">
+            <div class="input-cont">
+                <i class="material-icons blue-i" translate="no">phone_iphone</i>
+                <input id="phoneNumber" type="tel" formControlName="phoneNumber" placeholder="+00-000-000-0000"
+                    (input)="formatPhoneNumber()" class="blue-input" maxlength="16" appNumericOnly>
+            </div>
+            <div *ngIf="phoneNumber.invalid && (phoneNumber.touched)" class="error">
+                <div *ngIf="phoneNumber.errors?.['required']">Phone number is required.</div>
+                <div *ngIf="phoneNumber.errors?.['pattern']">Phone number must match the pattern XXX-XXX-XXXX.</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="w-100">
+                <div class="input-cont">
+                    <i class="material-icons blue-i" translate="no">cake</i>
+                    <input id="birthDate" type="date" formControlName="birthDate" placeholder="Birth Date"
+                        class="blue-input">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="w-100">
+            <div class="input-cont">
+                <i class="material-icons blue" translate="no">flag</i>
+                <input type="text" list="countries" (change)="selectCountry($event)" placeholder="Countries"
+                    class="blue-input">
+                <datalist id="countries">
+                    <option [value]=""></option>
+                    <option *ngFor="let c of countries" [value]="c.name">{{c.name}}</option>
+                </datalist>
+            </div>
+        </div>
+        <div class="w-100">
+            <div class="input-cont">
+                <i class="material-icons blue" translate="no">format_list_bulleted</i>
+                <input type="text" list="regions" (change)="selectRegion($event)" placeholder="Regions"
+                    class="blue-input">
+                <datalist id="regions">
+                    <option [value]=""></option>
+                    <option *ngFor="let r of regions" [value]="r.name">{{r.name}}</option>
+                </datalist>
+            </div>
+        </div>
+        <div class="w-100">
+            <div class="input-cont">
+                <i class="material-icons blue" translate="no">location_city</i>
+                <input type="text" list="cities" (change)="selectCity($event)" placeholder="Cities" class="blue-input">
+                <datalist id="cities">
+                    <option [value]=""></option>
+                    <option *ngFor="let c of cities" [value]="c.name">{{c.name}}</option>
+                </datalist>
+            </div>
+        </div>
+    </div>
+
+    <button (click)="save()">Save Information</button>
+
+</form>

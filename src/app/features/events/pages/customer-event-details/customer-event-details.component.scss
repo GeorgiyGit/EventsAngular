@@ -1,0 +1,19 @@
+@import '/src/app/styles/details/details.scss';
+
+section{
+    background: linear-gradient(180deg,
+    $red-grad-0 0%,
+    $red-grad-1 100%);
+
+    .types div{
+        color: $red-3;
+        border: 2px solid $red-3;
+    }
+    .types div:hover{
+        background-color: $red-3;
+        color: $white;
+    }
+    .main-cont{
+        box-shadow: 0px 0px 10px 5px $red-4;
+    }
+}

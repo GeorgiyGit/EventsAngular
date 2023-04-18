@@ -4,9 +4,9 @@
         <i translate="no" class="material-icons">image</i>
         <p>Drag and drop your files here</p>
     </label>
-    <div class="images-cont">
+    <div [ngClass]="this.color=='red'?'images-cont red-border':'images-cont orange-border'">
         <div *ngFor="let image of originalImages" (click)="removeOriginalImage(image)">
-            <img src={{image.path}} alt={{image.title}}>
+            <img src={{image.fullName}} alt={{image.name}}>
             <div class="centered">
                 <i translate="no" class="material-icons">add</i>
             </div>

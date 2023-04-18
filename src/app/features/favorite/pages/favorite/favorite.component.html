@@ -1,0 +1,20 @@
+<section>
+    <div class="main-div">
+        <div class="close-div">
+            <i class="material-icons close" translate="no" (click)="closeOverflow()">close</i>
+        </div>
+        <h2>Favorite events and places</h2>
+        <div>
+            <ul>
+                <li [ngClass]="isOpenEvents?'enable_event':'disable_event'">
+                    <a (click)="openEvents()">Events</a>
+                </li>
+                <li [ngClass]="isOpenEvents?'disable_place':'enable_place'">
+                    <a (click)="openPlaces()">Places</a>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <router-outlet></router-outlet>
+    </div>
+</section>

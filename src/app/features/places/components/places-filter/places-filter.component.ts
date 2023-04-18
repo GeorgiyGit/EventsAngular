@@ -17,8 +17,7 @@ export class PlacesFilterComponent {
 
   selectedGenres: IGenre[] = [];
   placeholder = "Add Type";
-
-  @Input() places: ISimplePlace[];
+  
   @Output() filterEvent = new EventEmitter<IPlaceFilter>();
 
   filter: IPlaceFilter={

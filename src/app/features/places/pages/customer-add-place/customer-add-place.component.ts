@@ -30,7 +30,7 @@ export class CustomerAddPlaceComponent {
   get site() { return this.placeForm.get('site')!; }
   get facebook() { return this.placeForm.get('facebook')!; }
   get instagram() { return this.placeForm.get('instagram')!; }
-  get googleMaps() { return this.placeForm.get('googleMaps')!; }
+  //get googleMaps() { return this.placeForm.get('googleMaps')!; }
 
 
   constructor(private fb: FormBuilder,
@@ -53,8 +53,8 @@ export class CustomerAddPlaceComponent {
       route: ['', [Validators.required, Validators.maxLength(500)]],
       site: [''],
       facebook: [''],
-      instagram: [''],
-      googleMaps: ['', Validators.required]
+      instagram: ['']
+      //googleMaps: ['', Validators.required]
     });
 
 

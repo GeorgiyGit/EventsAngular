@@ -22,23 +22,24 @@ export class CustomerPlaceCardComponent implements OnInit {
   constructor(private router: Router,
     private sanitizer: DomSanitizer) {
     this.filesServerUrl = environment.filesUrl;
+    console.log(this.place);
   }
 
   ngOnInit(): void {
     if (this.place.images.length >= 1) {
-      this.url = this.sanitizer.bypassSecurityTrustStyle(`url('${this.filesServerUrl}320_${this.place.images[0].path}')`);
+      this.url = this.sanitizer.bypassSecurityTrustStyle(`url('${this.filesServerUrl}320_${this.place.images[0].fullName}')`);
       console.log(this.url);
     }
     else {
       this.url = this.sanitizer.bypassSecurityTrustStyle(`url('https://static-cse.canva.com/blob/847064/29.jpg')`);
     }
     if (this.place.images.length >= 2) {
-      this.url2 = this.sanitizer.bypassSecurityTrustStyle(`url('${this.filesServerUrl}320_${this.place.images[1].path}')`);
+      this.url2 = this.sanitizer.bypassSecurityTrustStyle(`url('${this.filesServerUrl}320_${this.place.images[1].fullName}')`);
       console.log(this.url2);
     }
   }
 
   click(id: number) {
-    this.router.navigateByUrl("/places/place/" + id);
+    this.router.navigateByUrl("/places/details/" + id);
   }
 }
